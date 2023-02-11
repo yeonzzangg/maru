@@ -1,0 +1,174 @@
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+
+
+/*로그인*/
+#login {
+    width: 1200px;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+#login h2 {
+    font-size: 63px;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    padding: 200px 0 0 280px;
+}
+
+#login p {
+    font-size: 20px;
+    color: #666;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    padding: 40px 0 0 280px;
+}
+
+#login fieldset {
+    border: 0;
+    
+    margin: 80px 0 0 280px
+}
+
+#login fieldset ul {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#login fieldset ul li input[type="text"] {
+    width: 480px;
+    height: 60px;
+    border: 0;
+    border-bottom: 1px solid #333;
+    outline: none;
+    
+    margin-top: 10px;
+}
+
+#login fieldset ul li input[type="password"] {
+    width: 480px;
+    height: 60px;
+    border: 0;
+    border-bottom: 1px solid #333;
+    outline: none;
+    
+    margin-top: 10px;
+}
+
+#login fieldset ul li input[placeholder] {
+    font-size: 18px;
+    color: #999;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    padding-left: 10px;
+}
+
+#login fieldset ul li:nth-child(3) {
+    font-size: 14px;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    padding-top: 10px;
+}
+
+#login fieldset ul li:nth-child(3) a {
+    font-size: 14px;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#login fieldset ul li:nth-child(3) span {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #333;
+    
+    margin: 0 10px;
+}
+
+#login fieldset ul li input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    
+    vertical-align: bottom;
+    margin: 0 10px 0 220px;
+}
+
+#login fieldset ul input[type="submit"] {
+    width: 140px;
+    height: 155px;
+    background: #333;
+    
+    cursor: pointer;
+    
+    margin: 15px 0 0 10px;
+}
+
+#login fieldset ul input[value] {
+    font-size: 18px;
+    color: #fff;;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#login h5 {
+    width: 640px;
+    height: 100px;
+    background: #fafafa;
+    
+    margin: 100px auto;
+    
+    font-size: 18px;
+    color: #666;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
+    line-height: 101px;
+}
+
+#login h5 b {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #333;
+    
+    vertical-align: middle;
+    margin: 0 10px 0 20px;
+}
+
+#login h5 span a {
+    color: #333;
+    font-weight: bold;
+    
+    padding-left: 250px;
+}
+
+#login h5 span i {
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+
+
+
+

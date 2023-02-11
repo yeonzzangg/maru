@@ -1,0 +1,150 @@
+
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+ul{
+	
+}
+
+/*공통*/
+/*카피라이트*/
+#wrap_footer {
+    width: 100%;
+    height: 260px;
+    background: #030c33;
+    margin: 0 auto;
+}
+
+#myfooter {
+    width: 1200px;
+    height: 260px;
+    background: #030c33;
+    margin: 0 auto;
+}
+
+#myfooter p.logo {
+    display: inline-block;
+    width: 65px;
+    height: 45px;
+    
+    margin: 70px 0 0 75px; 
+}
+
+#myfooter ul {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 0;
+}
+
+#myfooter ul.left {
+    margin-top: 70px;
+    margin-left: 40px;
+}
+
+#myfooter ul.left li {
+    font-size: 13px;
+    color: #999;
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+}
+
+#myfooter ul.left li a {
+    font-size: 13px;
+    color: #999;
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+}
+
+#myfooter ul.left li span {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #999;
+    
+    margin: 0 20px;
+}
+
+#myfooter ul.left li:nth-child(2) {
+    padding-top: 20px;
+}
+
+#myfooter ul.left li a:hover {
+    font-weight: bold;
+}
+
+#myfooter ul.right {
+    display: inline-block;
+    vertical-align: top;
+    
+    margin: 70px 0 0 180px;
+}
+
+#myfooter ul.right select {
+    width: 265px;
+    height: 35px;
+    border: 1px solid #999;
+    background: #030c33;
+    
+    font-size: 13px;
+    color: #999;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    padding-left: 10px;
+}
+
+#myfooter ul.right li:nth-child(2) p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#myfooter ul.right li:nth-child(2) {
+    text-align: right;
+    
+    padding-top: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

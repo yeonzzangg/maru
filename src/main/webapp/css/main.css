@@ -1,0 +1,718 @@
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+
+/*메인*/
+main {
+    width: 1200px;
+    height: 640px;
+    background: url(../images/main_img.jpg);
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+
+main h2 {
+    font-size: 48px;
+    color: #fff;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: normal;
+    letter-spacing: -2px;
+
+    padding-top: 195px;
+}
+
+main h5 {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    font-weight: normal;
+    line-height: 1.7;
+
+    padding-top: 25px;
+}
+
+main p.left {
+    position: absolute;
+    top: 260px;
+    left: 15px;
+}
+
+main p.right {
+    position: absolute;
+    top: 260px;
+    right: 15px;
+}
+
+
+
+/*아이콘메뉴*/
+#icon_nav {
+    width: 1200px;
+    height: 200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#icon_nav li {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 85px;
+    height: 100px;
+    margin: 40px 35px;
+}
+
+#icon_nav li p.img {
+    height: 65px;
+}
+
+#icon_nav li p.txt {
+    font-size: 14px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    font-weight: normal;
+
+    padding-top: 10px;
+}
+
+#icon_nav li:hover img {
+    transform: scale(1.2);
+    transition: 1s;
+}
+
+#icon_nav li:hover p.txt {
+    font-weight: bold;
+    color: #030c33;
+}
+
+
+
+
+/*공지사항*/
+#notice {
+    width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+#notice p a {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    background: url(../images/one.jpg)no-repeat center right;
+
+    font-size: 14px;
+    color: #666; 
+    font-family: 'NanumBarunGothic';
+    line-height: 40px;
+
+    margin: 0 0 10px 1100px;
+}
+
+#notice p i {
+    padding-left: 5px;
+}
+
+#notice p a:hover {
+    font-weight: bold;
+}
+
+
+/*공지왼쪽*/
+#notice ul.left {
+    width: 210px;
+    height: 315px;
+    background: #030c33;
+
+    float: left;
+}
+
+#notice ul.left li {
+    margin-left: 30px;
+}
+
+#notice ul.left li a {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-bottom: 1px solid #999;
+
+    padding-top: 25px;
+    padding-left: 5px;
+
+    font-size: 15px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+}
+
+#notice ul.left li:nth-child(1) {
+    display: inline-block;
+    margin-top: 25px;
+}
+
+#notice ul.left i {
+    padding-right: 10px;
+    display: none;
+    
+    float: left;
+}
+
+#notice ul.left li:hover a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    border-bottom: 1px solid #fff;
+
+    padding-left: 40px;
+    transition: 1s;
+}
+
+#notice ul.left li:hover i {
+    display: block;
+}
+
+#notice ul.left li:nth-child(1) a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    border-bottom: 1px solid #fff;
+
+    padding-left: 40px;
+}
+
+#notice ul.left li:nth-child(1) i {
+    display: block;
+}
+
+
+/*공지오른쪽들*/
+#notice ul.info a {
+    float: left;
+
+    width: 330px;
+    height: 315px;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+#notice ul.info li:nth-child(1) {
+    width: 50px;
+    height: 22px;
+    border: 1px solid #2493e0;
+    border-radius: 10px;
+
+    font-size: 12px;
+    color: #2493e0;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    text-align: center;
+    line-height: 22px;
+
+    margin-top: 40px;
+    margin-left: 35px;
+}
+
+#notice ul.info li:nth-child(2) {
+    font-size: 18px;
+    color: #0846a8;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.5;
+
+    padding-top: 25px;
+    padding-left: 35px;
+}
+
+#notice ul.info li:nth-child(3) {
+    font-size: 14px;
+    color: #999;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.5;
+
+    padding-top: 25px;
+    padding-left: 35px;
+}
+
+#notice ul.info li:nth-child(4) {
+    font-size: 11px;
+    color: #999;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+
+    padding-top: 30px;
+    padding-left: 35px;
+}
+
+#notice ul.info:hover a {
+    box-shadow: 0 0 15px #ddd;
+    z-index: 1;
+}
+
+
+
+
+
+/*프로그램*/
+#program {
+    width: 1200px;
+    height: 700px;
+    background: url(../images/program_bg.jpg);
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#program p.title1 {
+    font-size: 15px;
+    color: #666;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+
+    position: absolute;
+    top: 130px;
+    left: 100px;
+}
+
+#program p.title2 {
+    width: 250px;
+    background: linear-gradient(to right, #156ac0, #32c3bc);
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    font-size: 50px;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: -3px;
+    font-style: italic;
+    font-weight: bold;
+
+    position: absolute;
+    top: 160px;
+    left: 100px;
+}
+
+#program p.title3 {
+    width: 250px;
+    background: linear-gradient(to right, #156ac0, #32c3bc);
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    font-size: 50px;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: -3px;
+    font-style: italic;
+    font-weight: bold;
+
+    position: absolute;
+    top: 210px;
+    left: 215px;
+}
+
+#program ul.left {
+    position: absolute;
+    top: 290px;
+    left: 100px;
+}
+
+#program ul.left li a {
+    display: inline-block;
+    width: 230px;
+    height: 48px;
+    border-bottom: 1px solid #ddd;
+
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    line-height: 48px;
+}
+
+#program ul.left li p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#program ul.left li p.left {
+    width: 45px;
+    padding-left: 15px;
+}
+
+#program ul.left li:hover a {
+    width: 320px;
+    height: 48px;
+    background: linear-gradient(to right, #156ac0, #32c3bc);
+    box-shadow: 0 0 15px #999;
+    color: #fff;
+}
+
+
+
+#program ul.right {
+    position: absolute;
+    top: 290px;
+    right: 60px;
+}
+
+#program ul.right li:nth-child(1) {
+    font-size: 27px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.4;
+}
+
+#program ul.right li:nth-child(2) {
+    font-size: 12px;
+    color: #666;
+    font-family: 'NanumBarunGothic';
+
+    padding-top: 20px;
+}
+
+#program ul.right li:nth-child(3) a {
+    display: inline-block;
+
+    width: 90px;
+    height: 35px;
+    border: 1px solid #666;
+
+    font-size: 12px;
+    color: #666;
+    font-family: 'NanumBarunGothic';
+    text-align: center;
+    line-height: 35px;
+
+    margin-top: 30px;
+}
+
+#program ul.right li:nth-child(3):hover a {
+    background: #666;
+    color: #fff;
+}
+
+
+
+/*예매하기*/
+#wrap_ticket {
+    width: 100%px;
+    height: 215px;
+    background: url(../images/ticket_bg.jpg)no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#ticket {
+    width: 1200px;
+    height: 215px;
+    background: url(../images/ticket_bg.jpg)no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#ticket h2 {
+    font-size: 27px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+
+    padding-top: 50px;
+}
+
+#ticket h5 {
+    font-size: 18px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    font-weight: normal;
+    letter-spacing: -1px;
+
+    padding-top: 15px;
+}
+
+#ticket h5 span {
+    color: #fff799;
+}
+
+#ticket p.btn a {
+    display: block;
+    width: 155px;
+    height: 35px;
+    border: 1px solid #fff;
+
+    font-size: 12px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    font-weight: normal;
+    line-height: 35px;
+
+    margin: 30px auto 0;
+}
+
+#ticket p.btn a:hover {
+    background: #fff;
+    color: #333;
+}
+
+
+/*시설소개*/
+#introduce {
+    width: 1200px;
+    margin: 0 auto 100px;
+    text-align: center;
+}
+
+#introduce h2 {
+    font-size: 24px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    
+    padding-top: 130px;
+}
+
+#introduce p.line {
+    width: 30px;
+    height: 4px;
+    background: #030c33;
+    margin: 20px auto;
+}
+
+#introduce ul {
+    display: inline-block;
+    vertical-align: middle;
+    
+    width: 210px;
+    
+    margin: 30px 40px;
+    
+    position: relative;
+}
+
+#introduce ul li:nth-child(1) {
+    height: 205px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#introduce ul li:nth-child(2) {
+    font-size: 20px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    
+    padding-top: 25px;
+}
+
+#introduce ul li:nth-child(3) {
+    width: 210px;
+    height: 205px;
+    background: rgba(225,225,225,0.4);
+    border-radius: 50%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+/*#introduce ul:hover {
+    font-weight: bold;
+}
+
+#introduce ul:hover li:nth-child(3) {
+    display: block;
+}*/
+
+#introduce ul li:nth-child(1):hover img {
+    transform: scale(1.2);
+    transition: 1s;
+}
+
+
+
+/*이벤트*/
+#event {
+    width: 1200px;
+    height: 620px;
+    background: url(../images/event_bg.jpg);
+    margin: 0 auto;
+}
+
+#event h2 {
+    font-size: 80px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+#event h4 {
+    font-size: 17px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+#event ul {
+    float: left;
+    text-align: center;
+    
+    width: 320px;
+    height: 320px;
+    background: rgba(225,225,225,0.3);
+    
+    margin-top: 55px;
+}
+
+#event ul.first {
+    margin-left: 120px;
+}
+
+#event ul.second {
+    border-left: 1px solid rgba(225,225,225,0.4);
+    border-right: 1px solid rgba(225,225,225,0.4);
+}
+
+#event ul li:nth-child(1) {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    
+    margin-top: 60px;
+}
+
+#event ul li:nth-child(2) {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+}
+
+#event ul li:nth-child(3) {
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.5;
+    
+    padding-top: 15px;
+}
+
+#event ul li:nth-child(4) a {
+    display: inline-block;
+    width: 125px;
+    height: 43px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    margin: 20px auto 0;
+    
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'NanumBarunGothic';
+    line-height: 43px;
+    display: none;
+}
+
+#event ul:hover {
+    background: #030c33;
+}
+
+#event ul:hover li {
+    transform: translateY(-40px);
+    transition: 1s;
+}
+
+#event ul:hover li:nth-child(4) a {
+    display: block;
+}
+
+#event ul li:nth-child(4) a:hover {
+    background: #fff;
+    color: #030c33;
+}
+
+
+/*sns*/
+#sns {
+    width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#sns h2 {
+    font-size: 22px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    text-align: left;
+    
+    padding-top: 140px;
+    padding-left: 95px;
+}
+
+#sns ul {
+    display: inline-block;
+    vertical-align: middle;
+    
+    width: 240px;
+    height: 270px;
+    background: #fff;
+    box-shadow: 0px 0px 15px #ddd;
+    
+    margin: 35px 5px;
+    
+    position: relative;
+}
+
+#sns ul a {
+    display: inline-block;
+    
+    width: 240px;
+    height: 270px;
+}
+
+#sns ul li:nth-child(1) {
+    height: 180px;
+}
+
+#sns ul li:nth-child(2) {
+    width: 210px;
+    margin: 0 auto;
+    text-align: left;
+    
+    font-size: 12px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.4;
+    
+    padding-top: 30px;
+}
+
+#sns ul li:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+    position: absolute;
+    top: 160px;
+    right: 10px;
+}
+
+#sns ul:hover li:nth-child(2) {
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+
+
+
