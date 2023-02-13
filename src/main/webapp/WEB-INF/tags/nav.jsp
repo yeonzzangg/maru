@@ -20,6 +20,7 @@
 <c:url value="/member/signup" var="signupLink" />
 <c:url value="/admin/memberList" var="memberListLink" />
 <c:url value="/main/list" var="mainLink" />
+<c:url value="/notice/list" var="noticeLink" />
 
 <c:url value="/member/info" var="memberInfoLink" >
 	<c:param name="userId" value="${userId }" />
@@ -49,7 +50,7 @@
     <!--메뉴-->
     <div id="wrap_nav">
         <nav>
-            <ul>
+            <ul> 
                 <h2><a href="${mainLink }"><img src="${pageContext.request.contextPath}/images/logo.jpg"></a></h2>
                 <li><a href="introduce.html">별마로 소개</a>
                     <ul class="sub">
@@ -77,9 +78,9 @@
                         <li><a href="#a">제휴할인</a></li>
                     </ul>
                 </li>
-                <li><a href="notice.html">고객의 소리</a>
+                <li><a href="${noticeLink }">고객의 소리</a>
                     <ul class="sub">
-                        <li><a href="notice.html">공지사항</a></li>
+                        <li><a href="${noticeLink }">공지사항</a></li>
                         <li><a href="#a">자주하는 질문</a></li>
                         <li><a href="#a">1:1 문의</a></li>
                         <li><a href="#a">후기</a></li>

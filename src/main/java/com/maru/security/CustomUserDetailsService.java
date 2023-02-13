@@ -43,7 +43,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		User user = new User(member.getUserId(), member.getPassword(), authorityList);
 		//import org.springframework.security.core.userdetails.User;
 		// 세번째 파라미터 : 권한 (authorization) = 유저/관리자 
-		
+		System.out.println(user);
 		return user;
 	}
 		

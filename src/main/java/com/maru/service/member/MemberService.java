@@ -3,7 +3,6 @@ package com.maru.service.member;
 import java.util.List;
 
 import com.maru.domain.member.MemberDto;
-import com.maru.domain.member.MemberPageInfo;
 
 public interface MemberService {
 

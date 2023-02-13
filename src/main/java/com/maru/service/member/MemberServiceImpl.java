@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.maru.domain.member.MemberDto;
-import com.maru.domain.member.MemberPageInfo;
 import com.maru.mapper.member.MemberMapper;
 
 @Service

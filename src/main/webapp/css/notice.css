@@ -1,0 +1,646 @@
+/*폰트*/
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@import url(https://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.nanummyeongjo * {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+/*로그인/회원가입/검색*/
+header {
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+header p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header p a {
+    display: inline-block;
+
+    font-size: 12px;
+    color: #666;
+    letter-spacing: -1px;
+    line-height: 40px;
+}
+
+header p.line {
+    width: 1px;
+    height: 10px;
+    background: #999;
+
+    margin: 2px 10px 0;
+}
+
+header p img {
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+header p:hover a {
+    font-weight: bold;
+}
+
+
+
+/*메뉴*/
+#wrap_nav {
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+nav {
+    width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+}
+
+nav > ul > h2 {
+    display: inline-block;
+    vertical-align: middle;
+
+    padding-left: 48px;
+}
+
+nav > ul> li {
+    display: inline-block;
+    vertical-align: middle;
+    
+    position: relative;
+}
+
+nav > ul> li > a {
+    display: inline-block;
+    width: 110px;
+    height: 70px;
+
+    font-size: 16px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    line-height: 68px;
+    font-weight: bold;
+    text-align: center;
+
+    margin: 0 20px;
+}
+
+nav > ul > li:nth-child(2) {
+    margin-left: 260px;
+}
+
+nav > ul > li:hover > a {
+    color: #030c33;
+    border-bottom: 2px solid #030c33;
+}
+
+nav > ul > li > ul.sub {
+    width: 130px;
+    height: 300px;
+    
+    position: absolute;
+    top: 70px;
+    left: 0;
+    
+    display: none;
+}
+
+nav > ul > li > ul.sub > li > a {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background: rgba(225,225,225,0.8);
+    
+    font-size: 14px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    text-align: center;
+    line-height: 50px;
+}
+
+nav > ul > li > ul.sub > li > a:hover {
+    background: #fff;
+    color: #030c33;
+    font-weight: bold;
+}
+
+nav > ul > li:hover ul.sub {
+    display: block;
+    z-index: 999;
+}
+/*공통메뉴끝*/
+
+
+
+/*메인*/
+main {
+    width: 1200px;
+    height: 670px;
+    background: url(../images/notice_main_bg.jpg);
+    margin: 0 auto;
+}
+
+main p.txt1 {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    font-weight: bold;
+    
+    padding-top: 200px;
+    padding-left: 110px;
+}
+
+main p.txt1 span {
+    display: inline-block;
+    width: 310px;
+    height: 1px;
+    background: #fff;
+    
+    margin-left: 30px;
+    vertical-align: middle;
+}
+
+main h2 {
+    font-size: 50px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    
+    padding-left: 110px;
+    padding-top: 30px;
+}
+
+main h2 b {
+    font-weight: 300;
+}
+
+main p.txt2 {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    
+    padding-top: 55px;
+    padding-left: 110px;
+}
+
+
+/*중간메뉴*/
+#under_nav {
+    width: 1200px;
+    height: 160px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#under_nav ul li {
+    display: inline-block;
+    margin: 70px 30px;
+}
+
+#under_nav ul li a {
+    font-size: 18px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+    
+    padding: 20px 35px 16px;
+    border: 1px solid #999;
+    border-radius: 40px;
+}
+
+#under_nav ul li:nth-child(1) a {
+    color: #fff;
+    background: #030c33;
+    border: 0;
+}
+
+
+
+/*본문*/
+/*공지중간메뉴*/
+#notice_nav {
+    width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    
+    position: relative;
+}
+
+#notice_nav ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#notice_nav ul li p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#notice_nav ul li p.line {
+    width: 1px;
+    height: 10px;
+    background: #ddd;
+    margin: 8px 25px 0;
+}
+
+#notice_nav ul li p.txt a {
+    font-size: 13px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+    font-weight: bold;
+}
+
+#notice_nav ul li p.txt span {
+    display: inline-block;
+    
+    width: 20px;
+    height: 3px;
+    background: #0000ff;
+    
+    opacity: 0;
+}
+
+#notice_nav ul li.first p.txt span {
+    opacity: 1;
+}
+
+#notice_nav p.bottom_line {
+    width: 970px;
+    height: 1px;
+    background: #ddd;
+    margin: 15px auto;
+    
+    position: absolute;
+    top: 20px;
+    left: 115px;
+}
+
+#notice_nav ul li p.txt:hover span {
+    opacity: 1;
+}
+
+
+
+
+
+/*검색라인*/
+#search {
+    width: 1200px;
+    margin: 0px auto 50px;
+}
+
+#search p {
+    display: inline-block;
+    vertical-align: middle;
+    
+    font-size: 13px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    padding: 0 10px;
+}
+
+#search p.first {
+    padding-left: 110px;
+}
+
+#search select {
+    width: 110px;
+    height: 35px;
+    border: 1px solid #ddd;
+    
+    font-size: 12px;
+    color: #666;
+    font-family: 'NanumBarunGothic';
+    padding-left: 5px;
+    
+    margin-left: 440px;
+}
+
+#search option {
+    font-size: 12px;
+    color: #666;
+    font-family: 'NanumBarunGothic';
+}
+
+#search input[type="search"] {
+    width: 150px;
+    height: 35px;
+    border: 1px solid #ddd;
+    
+    font-size: 12px;
+    color: #666;
+    font-family: 'NanumBarunGothic';
+    padding-left: 5px;
+}
+
+#search input[type="submit"] {
+    width: 65px;
+    height: 35px;
+    background: #030c33;
+    
+    font-size: 12px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    
+    cursor: pointer;
+}
+
+
+
+
+/*공지*/
+#notice {
+    width: 1200px;
+    height: 900px;
+    margin: 0px auto;
+}
+
+#notice h2 {
+    font-size: 28px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    text-align: center;
+    
+    padding-bottom: 50px;
+}
+
+#notice table {
+    width: 1000px;
+    margin: 0 auto;
+    
+    border-collapse: collapse;
+    border-top: 2px solid #666
+}
+
+#notice table tr {
+    height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#notice table tr.top {
+    background: #f7f7f7;
+}
+
+#notice table tr td:nth-child(1) {
+    width: 120px;
+    text-align: center;
+}
+
+#notice table tr td:nth-child(1) p {
+    width: 50px;
+    height: 30px;
+    background: #030c33;
+    border-radius: 30px;
+    
+    font-size: 12px;
+    color: #fff;
+    font-family: 'NanumBarunGothic';
+    line-height: 31px;
+    
+    margin: 0 auto;
+}
+
+#notice table tr td:nth-child(2) a {
+    display: inline-block;
+    width: 750px;
+    
+    font-size: 14px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+}
+
+#notice table tr td.num {
+    font-size: 12px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+}
+
+#notice table tr td:nth-child(3) {
+    font-size: 10px;
+    color: #333;
+    font-family: 'NanumBarunGothic';
+    
+    padding-right: 30px;
+}
+
+#notice table td a:hover {
+    text-decoration-line: underline;
+}
+
+
+
+/*페이지이동*/
+#notice ul {
+    width: 270px;
+    height: 30px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#notice ul li a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    
+    float: left;
+    
+    font-size: 14px;
+    color: #666;
+    line-height: 30px;
+}
+
+#notice ul li.num a {
+    border: 0;
+    margin: 0 10px;
+}
+
+#notice ul li.left a {
+    border-right: 0;
+}
+
+
+/*공통*/
+/*카피라이트*/
+#wrap_footer {
+    width: 100%;
+    height: 260px;
+    background: #030c33;
+    margin: 0 auto;
+}
+
+footer {
+    width: 1200px;
+    height: 260px;
+    background: #030c33;
+    margin: 0 auto;
+}
+
+footer p.logo {
+    display: inline-block;
+    width: 65px;
+    height: 45px;
+    
+    margin: 70px 0 0 75px; 
+}
+
+footer ul {
+    display: inline-block;
+    vertical-align: top;
+}
+
+footer ul.left {
+    margin-top: 70px;
+    margin-left: 40px;
+}
+
+footer ul.left li {
+    font-size: 13px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.6;
+}
+
+footer ul.left li a {
+    font-size: 13px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+    line-height: 1.6;
+}
+
+footer ul.left li span {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #999;
+    
+    margin: 0 20px;
+}
+
+footer ul.left li:nth-child(2) {
+    padding-top: 20px;
+}
+
+footer ul.left li a:hover {
+    font-weight: bold;
+}
+
+footer ul.right {
+    display: inline-block;
+    vertical-align: top;
+    
+    margin: 70px 0 0 180px;
+}
+
+footer ul.right select {
+    width: 265px;
+    height: 35px;
+    border: 1px solid #999;
+    background: #030c33;
+    
+    font-size: 13px;
+    color: #999;
+    font-family: 'NanumBarunGothic';
+    
+    padding-left: 10px;
+}
+
+footer ul.right li:nth-child(2) p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+footer ul.right li:nth-child(2) {
+    text-align: right;
+    
+    padding-top: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
