@@ -54,4 +54,36 @@
  	LIMIT #{offset}, #{records}
  	</select>
  	
+ 	<!-- 게시글 보기(get) -->
+ 	<select id="select" resultType="com.maru.domain.notice.NoticeDto">
+ 	SELECT
+ 		number,
+ 		category,
+ 		title,
+ 		content,
+ 		insertDate,
+ 		member_userId
+ 	FROM
+ 		notice
+ 	WHERE
+ 		number = #{number}
+ 	</select>
+ 	
+ 	<!-- 글 수정 -->
+ 	<update id="update">
+ 	UPDATE notice
+ 	SET
+ 		category = #{category},
+ 		title = #{title},
+ 		content = #{content}
+ 	WHERE
+ 		number = #{number}
+ 	</update>
+ 	
+ 	<!-- 글 삭제 -->
+ 	<delete id="delete">
+ 	DELETE FROM notice
+ 	WHERE number = #{number}
+ 	</delete>
+ 	
  </mapper>

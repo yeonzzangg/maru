@@ -12,4 +12,14 @@ public interface NoticeMapper {
 
 	int insert(NoticeDto notice);
 
+	public NoticeDto select(int number, String member_userId);
+
+	default NoticeDto select(int number) {
+		return select(number, null);
+	}
+	
+	int update(NoticeDto notice);
+
+	int delete(int number);
+
 }

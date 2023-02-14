@@ -60,10 +60,6 @@
             </li>
             <li>
                 <button type="txt" class="txt" name="category" value="보도자료">보도자료<br><span></span></button>
-                <p class="line"></p>
-            </li>
-            <li>
-                <p class="txt"><a href="#a">보도자료</a><br><span></span></p>
             </li>
         </ul>
         </form>
@@ -97,7 +93,7 @@
         <table>
         	<c:forEach items="${noticeList }" var="notice">
         	
-       		<c:url value="/notice/list" var="getLink">
+       		<c:url value="/notice/get" var="getLink">
         		<c:param name="number" value="${notice.number }"></c:param>
        		</c:url>
         		

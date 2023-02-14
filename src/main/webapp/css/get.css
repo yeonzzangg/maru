@@ -1,0 +1,125 @@
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+   list-style:none;
+  }
+
+#NoticeGet { 
+	width: 1200px;
+	margin: 0 auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px;
+}
+
+/* 상단 버튼부분 */
+.topbtnBox {
+	margin: 30px 0 15px 0;
+	position: relative;
+}
+
+.topbtnBox .listBtn {
+	width: 160px;
+    height: 50px;
+    background: #fff;
+    color: #030c33;
+    border: 1px solid #030c33;
+    font-size: 16px;
+    border-radius:40px;
+    
+    cursor: pointer;
+}
+
+.topbtnBox .modifyBtn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	
+	width: 100px;
+    height: 50px;
+    background: #fff;
+    color: #030c33;
+    border: 1px solid #030c33;
+    font-size: 16px;
+    border-radius:40px;
+    
+    cursor: pointer;
+}
+.topbtnBox .removeBtn {
+	position: absolute;
+	top: 0;
+	right: 110px;
+	
+	width: 100px;
+    height: 50px;
+    background: #fff;
+    color: #030c33;
+    border: 1px solid #030c33;
+    font-size: 16px;
+    border-radius:40px;
+    
+    cursor: pointer;
+}
+
+
+/* 본문 제목 */
+#post_wrap {
+	border-top: 2px solid #030c33;
+	border-bottom: 2px solid #030c33;
+	margin: 30px 0;
+	padding: 20px 0;
+}
+
+#post_wrap .post_top p {
+	display: inline-block;
+	font-size: 14px;
+}
+
+#post_wrap .post_top .txt {
+	font-size: 14px;
+	color: #666;
+	width: 60px;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 20px;
+}
+
+#post_wrap .post_top .colLine {
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	background: #999;
+	margin: 0 10px;
+}
+
+#post_wrap .post_top .rowLine {
+	border-top: 1px solid #ddd;
+}
+
+#post_wrap .post_top .top_title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#post_wrap .post_top .space1 {
+	margin-left: 600px;
+}
+
+#post_wrap .post_top .space2 {
+	margin-left: 150px;
+}
+
+
+/* 본문내용 */
+#summernote {
+	padding: 20px;
+}
+
+

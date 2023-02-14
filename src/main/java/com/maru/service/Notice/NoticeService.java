@@ -13,5 +13,13 @@ public interface NoticeService {
 	// 공지목록
 	List<NoticeDto> listNotice(int page, String type, String keyword, PageInfo pageInfo, String category);
 
+	NoticeDto get(int number, String member_userId);
+	
+	NoticeDto get(int number);
+
+	int update(NoticeDto notice);
+
+	int remove(int number);
+
 
 }

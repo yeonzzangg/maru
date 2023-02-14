@@ -58,4 +58,28 @@ public class NoticeServiceImp implements NoticeService {
 	
 		return mapper.list(offset, records, type,  "%" + keyword + "%", category);
 	}
+	
+	// 게시물 보기
+	@Override
+	public NoticeDto get(int number, String member_userId) {
+		return mapper.select(number, member_userId);
+	}
+	
+	@Override
+	public NoticeDto get(int number) {
+		return get(number, null);
+	}
+	
+	// 수정
+	@Override
+	public int update(NoticeDto notice) {
+		return mapper.update(notice);
+	}
+	
+	//삭제
+	@Override
+	public int remove(int number) {
+		return mapper.delete(number);
+	}
+	
 }

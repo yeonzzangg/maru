@@ -1,50 +1,12 @@
-/*폰트*/
-@font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
 
-
-@import url(https://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-
-.nanummyeongjo * {
-    font-family: 'Nanum Myeongjo', serif;
-}
-
-@font-face {
-    font-family: 'NanumBarunGothic';
-    font-style: normal;
-    font-weight: 400;
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'NanumBarunGothic';
-    font-style: normal;
-    font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
-}
-
-@font-face {
-    font-family: 'NanumBarunGothic';
-    font-style: normal;
-    font-weight: 300;
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
-    src: url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
-}
-
-.nanumbarungothic * {
-    font-family: 'NanumBarunGothic', sans-serif;
-}
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 img {
@@ -59,142 +21,6 @@ li {
     list-style: none;
 }
 
-/*로그인/회원가입/검색*/
-header {
-    width: 1200px;
-    height: 40px;
-    margin: 0 auto;
-    text-align: right;
-}
-
-header p {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-header p a {
-    display: inline-block;
-
-    font-size: 12px;
-    color: #666;
-    letter-spacing: -1px;
-    line-height: 40px;
-}
-
-header p.line {
-    width: 1px;
-    height: 10px;
-    background: #999;
-
-    margin: 2px 10px 0;
-}
-
-header p img {
-    padding-left: 5px;
-    padding-right: 40px;
-}
-
-header p:hover a {
-    font-weight: bold;
-}
-
-
-
-/*메뉴*/
-#wrap_nav {
-    width: 100%;
-    height: 70px;
-    margin: 0 auto;
-
-    border-bottom: 1px solid #ddd;
-    background: #fff;
-    
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
-
-nav {
-    width: 1200px;
-    height: 70px;
-    margin: 0 auto;
-}
-
-nav > ul > h2 {
-    display: inline-block;
-    vertical-align: middle;
-
-    padding-left: 48px;
-}
-
-nav > ul> li {
-    display: inline-block;
-    vertical-align: middle;
-    
-    position: relative;
-}
-
-nav > ul> li > a {
-    display: inline-block;
-    width: 110px;
-    height: 70px;
-
-    font-size: 16px;
-    color: #333;
-    font-family: 'NanumBarunGothic';
-    line-height: 68px;
-    font-weight: bold;
-    text-align: center;
-
-    margin: 0 20px;
-}
-
-nav > ul > li:nth-child(2) {
-    margin-left: 260px;
-}
-
-nav > ul > li:hover > a {
-    color: #030c33;
-    border-bottom: 2px solid #030c33;
-}
-
-nav > ul > li > ul.sub {
-    width: 130px;
-    height: 300px;
-    
-    position: absolute;
-    top: 70px;
-    left: 0;
-    
-    display: none;
-}
-
-nav > ul > li > ul.sub > li > a {
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    background: rgba(225,225,225,0.8);
-    
-    font-size: 14px;
-    color: #333;
-    font-family: 'NanumBarunGothic';
-    text-align: center;
-    line-height: 50px;
-}
-
-nav > ul > li > ul.sub > li > a:hover {
-    background: #fff;
-    color: #030c33;
-    font-weight: bold;
-}
-
-nav > ul > li:hover ul.sub {
-    display: block;
-    z-index: 999;
-}
-/*공통메뉴끝*/
-
-
 
 /*메인*/
 main {
@@ -207,7 +33,6 @@ main {
 main p.txt1 {
     font-size: 16px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     font-weight: bold;
     
     padding-top: 200px;
@@ -227,7 +52,6 @@ main p.txt1 span {
 main h2 {
     font-size: 50px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     
     padding-left: 110px;
     padding-top: 30px;
@@ -240,7 +64,6 @@ main h2 b {
 main p.txt2 {
     font-size: 16px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     
     padding-top: 55px;
     padding-left: 110px;
@@ -263,7 +86,6 @@ main p.txt2 {
 #under_nav ul li a {
     font-size: 18px;
     color: #999;
-    font-family: 'NanumBarunGothic';
     
     padding: 20px 35px 16px;
     border: 1px solid #999;
@@ -278,8 +100,7 @@ main p.txt2 {
 
 
 
-/*본문*/
-/*공지중간메뉴*/
+/*카테고리*/
 #notice_nav {
     width: 1200px;
     margin: 50px auto;
@@ -293,26 +114,23 @@ main p.txt2 {
     vertical-align: middle;
 }
 
-#notice_nav ul li p {
-    display: inline-block;
-    vertical-align: top;
+#notice_nav ul li button {
+	font-size: 14px;
+    color: #999;
+    background: #fff;
+    border: 0;
 }
 
 #notice_nav ul li p.line {
+	display: inline-block;
     width: 1px;
     height: 10px;
     background: #ddd;
-    margin: 8px 25px 0;
+    margin: 0 25px;
 }
 
-#notice_nav ul li p.txt a {
-    font-size: 13px;
-    color: #999;
-    font-family: 'NanumBarunGothic';
-    font-weight: bold;
-}
 
-#notice_nav ul li p.txt span {
+#notice_nav ul li .txt span {
     display: inline-block;
     
     width: 20px;
@@ -322,7 +140,7 @@ main p.txt2 {
     opacity: 0;
 }
 
-#notice_nav ul li.first p.txt span {
+#notice_nav ul li.first .txt span {
     opacity: 1;
 }
 

@@ -20,7 +20,7 @@
 
 .categorySelectBox .categorySelect {
 	display: inline-block;
-	width : 100px;
+	width : 120px;
 	height: 40px;
 	border: 0;
 	outline:none;
@@ -54,12 +54,30 @@
  margin: 30px auto;
 }
 
-.submitBox {
-	text-align: center;
+.row .contnet {
+	height: 500px;
+	border: 0;
+	border-radius: 5px;
+	outline: 1px solid #ced4da;
 	
+	color: #333;
+	font-size:16px;
 }
 
-.submitBox .btn {
-	font-size: 20px;
-	padding: 5px 30px;
+.submitBox {
+	text-align: center;
+}
+
+.submitBox .noticeBtn {
+	width: 160px;
+    height: 50px;
+    background: #030c33;
+    color: #fff;
+    font-size: 16px;
+    border-radius:40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    cursor: pointer;
+    
+    margin: 50px;
 }
