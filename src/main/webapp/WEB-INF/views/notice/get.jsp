@@ -58,7 +58,9 @@
 			<p class="txt space2">일자</p><span class="colLine"></span><p>${notice.insertDate }</p>
 			<div class="rowLine"></div><br>
 		</div>
-		<div id="summernote" class="top_content">${notice.content }</div>
+		<div id="summernote" class="top_content">
+			<pre>${notice.content }</pre>
+		</div>
 	</div>
 	
 	</div>
