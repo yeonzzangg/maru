@@ -54,7 +54,7 @@
 			<p class="top_title">${notice.title }</p><br>
 			<div class="rowLine"></div><br>
 			<p class="txt">카테고리</p><span class="colLine"></span><p>${notice.category }</p>
-			<p class="txt space1">작성자</p><span class="colLine"></span><p>관리자</p>
+			<p class="txt space1">작성자</p><span class="colLine"></span><p>${notice.member_userId }</p>
 			<p class="txt space2">일자</p><span class="colLine"></span><p>${notice.insertDate }</p>
 			<div class="rowLine"></div><br>
 		</div>

@@ -24,11 +24,13 @@ public class NoticeController {
 	private NoticeService service;
 
 	@GetMapping("insert")
+	@PreAuthorize("hasAuthority('admin')")
 	public void insert() {
 		
 	}
 	
 	@PostMapping("insert")
+	@PreAuthorize("hasAuthority('admin')")
 	public String insert(NoticeDto notice) {
 		service.insert(notice);
 		

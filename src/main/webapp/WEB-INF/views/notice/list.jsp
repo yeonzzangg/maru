@@ -12,6 +12,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- 폰트어썸 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
@@ -30,8 +33,10 @@
             <li><a href="#a">자주 묻는 질문</a></li>
             <li><a href="#a">1 : 1 문의</a></li>
         </ul>
+		<h2>공지사항</h2>
     </div>
 
+	
     <!-- 카테고리 -->
     <div id="notice_nav">
 		<c:url value="/notice/list" var="listLink"></c:url>
@@ -66,12 +71,8 @@
         <p class="bottom_line"></p>
     </div>
     
-    
-    
     <!--검색라인-->
     <div id="search">
-        <p class="first">전체</p>
-        <p>103건</p>
         <c:url value="/notice/list" var="listLink"></c:url>
 		<form action="${listLink }" role="search">
 	        <!-- 검색 범위 설정 -->
@@ -84,38 +85,27 @@
 	        <input type="submit" value="검색">
         </form>
     </div>
-
-    
     
     <!--공지-->
     <div id="notice">
-        <h2>공지사항</h2>
         <table>
         	<c:forEach items="${noticeList }" var="notice">
         	
        		<c:url value="/notice/get" var="getLink">
         		<c:param name="number" value="${notice.number }"></c:param>
        		</c:url>
-        		
-        		<tr onclick="location.href='${getLink}'">
+        		<tr>
         			<td>${notice.number }</td>
-        			<td>${notice.title }</td>
+        			<td><a href="${getLink}">${notice.title }</a></td>
         			<td>${notice.insertDate }</td>
         		</tr>
         	</c:forEach>
-            <tr class="top"><a href="#a">
-                <td><p>공지</p></td>
-                <td><a href="#a">2022년 7월 온라인 예매 및 휴관일 안내</a></td>
-                <td>2022.06.22</td></a>
-            </tr>
-            </tr>
-               <tr><a href="#a">
-                <td class="num">103</td>
-                <td><a href="#a">별마로 천문대 야외화장실 보수공사 안내</a></td>
-                <td>2022.06.23</td></a>
-            </tr>
         </table>
+     </div>
         
+
+    <!-- 페이지네이션 -->
+	<div id="pagination">
         <ul class="pagination">
 		  <!-- 첫페이지로 가는 버튼 : 1페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != 1 }">
@@ -183,13 +173,30 @@
 			  </a></li>
 		  </c:if>
 	   </ul>
-    </div>
+	   
+	   <sec:authorize access="hasAuthority('admin')" var="adminLogin"/>
+	   <c:if test="${adminLogin}" >
+		   <c:url value="/notice/insert" var="insertLink"></c:url>
+		   <button type="button" onclick="location.href=' ${insertLink}'">글 작성</button>
+	   </c:if>
+   </div>
+    
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
 const ctx = "${pageContext.request.contextPath}";
+
+
+const selectCategory = $('.txt');
+let span = document.createElement('span');
+
+selectCategory.click(function () {
+    $(this).appendChild('span');
+    selectCategory.not($(this)).removeChild('span');
+});
+
 </script>
 </body>
 </html>
