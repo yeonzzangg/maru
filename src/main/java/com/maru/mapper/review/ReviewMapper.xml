@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.maru.mapper.review.ReviewMapper">
+ 
+ 	<!-- 글 입력 -->
+ 	<insert id="insert" >
+ 	INSERT INTO review (category, title, content, member_userId)
+ 	VALUES (#{category}, #{title}, #{content}, #{member_userId})
+ 	</insert>
+ 
+ 	<!-- 게시물 갯수 -->
+ 	<select id="countAll" resultType="int">
+ 	SELECT COUNT(*) FROM review
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'title'">
+	 		title LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'content'">
+	 		OR content LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	</select>
+ 	
+ 	<!-- 공지 목록 -->
+ 	<select id="list" resultType="com.maru.domain.review.ReviewDto">
+ 	SELECT
+ 		number,
+		title,
+		member_userId,
+		insertDate
+ 	FROM
+ 		review
+ 	WHERE
+ 		<if test="category != ''">
+ 		category = #{category} AND 
+ 		</if>
+ 		(
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'title'">
+	 		OR title LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'content'">
+	 		OR content LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'writer'">
+	 		OR member_userId LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 		)
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	LIMIT #{offset}, #{records}
+ 	</select>
+ 	
+ 	<!-- 게시글 보기(get) -->
+ 	<select id="select" resultType="com.maru.domain.review.ReviewDto">
+ 	SELECT
+ 		number,
+ 		category,
+ 		title,
+ 		content,
+ 		insertDate,
+ 		member_userId
+ 	FROM
+ 		review
+ 	WHERE
+ 		number = #{number}
+ 	</select>
+ 	
+ 	<!-- 글 수정 -->
+ 	<update id="update">
+ 	UPDATE review
+ 	SET
+ 		category = #{category},
+ 		title = #{title},
+ 		content = #{content}
+ 	WHERE
+ 		number = #{number}
+ 	</update>
+ 	
+ 	<!-- 글 삭제 -->
+ 	<delete id="delete">
+ 	DELETE FROM review
+ 	WHERE number = #{number}
+ 	</delete>
+ 	
+ </mapper>

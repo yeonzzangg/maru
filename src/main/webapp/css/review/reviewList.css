@@ -1,0 +1,313 @@
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+
+/*메인*/
+main {
+    width: 1200px;
+    height: 670px;
+    background: url(../../images/notice_main_bg.jpg);
+    margin: 0 auto;
+}
+
+main p.txt1 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    
+    padding-top: 200px;
+    padding-left: 110px;
+}
+
+main p.txt1 span {
+    display: inline-block;
+    width: 310px;
+    height: 1px;
+    background: #fff;
+    
+    margin-left: 30px;
+    vertical-align: middle;
+}
+
+main h2 {
+    font-size: 50px;
+    color: #fff;
+    
+    padding-left: 110px;
+    padding-top: 30px;
+}
+
+main h2 b {
+    font-weight: 300;
+}
+
+main p.txt2 {
+    font-size: 16px;
+    color: #fff;
+    
+    padding-top: 55px;
+    padding-left: 110px;
+}
+
+
+/*중간메뉴*/
+#under_nav {
+    width: 1200px;
+    height: 160px;
+    margin: 30px auto;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+#under_nav ul li {
+    display: inline-block;
+    margin: 70px 30px;
+}
+
+#under_nav ul li a {
+    font-size: 18px;
+    color: #999;
+    
+    padding: 20px 35px 16px;
+    border: 1px solid #999;
+    border-radius: 40px;
+}
+
+#under_nav ul li:nth-child(4) a {
+    color: #fff;
+    background: #030c33;
+    border: 0;
+}
+
+
+/*카테고리*/
+#notice_nav {
+    width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    
+    position: relative;
+}
+
+#notice_nav ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#notice_nav ul li button {
+	font-size: 14px;
+    color: #999;
+    background: #fff;
+    border: 0;
+}
+
+#notice_nav ul li p.line {
+	display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #ddd;
+    margin: 0 25px;
+}
+
+#notice_nav ul li .txt span {
+    display: inline-block;
+    
+    width: 20px;
+    height: 3px;
+    background: #0000ff;
+    
+    opacity: 0;
+}
+
+#notice_nav ul li.first .txt span {
+    opacity: 0;
+}
+
+#notice_nav p.bottom_line {
+    width: 970px;
+    height: 1px;
+    background: #ddd;
+    margin: 15px auto;
+    
+    position: absolute;
+    top: 20px;
+    left: 115px;
+}
+
+#notice_nav ul li .txt:hover span {
+    opacity: 1;
+}
+
+
+/*검색라인*/
+#search {
+    width: 1200px;
+    margin: 60px auto 30px;
+}
+
+#search form {
+	text-align: right;
+	margin-right: 115px;
+}
+
+#search select {
+    width: 110px;
+    height: 35px;
+    border: 1px solid #ddd;
+    
+    font-size: 12px;
+    color: #666;
+    padding-left: 5px;
+}
+
+#search option {
+    font-size: 12px;
+    color: #666;
+}
+
+#search input[type="search"] {
+    width: 150px;
+    height: 35px;
+    border: 1px solid #ddd;
+    
+    font-size: 12px;
+    color: #666;
+    padding-left: 5px;
+}
+
+#search input[type="submit"] {
+    width: 65px;
+    height: 35px;
+    background: #030c33;
+    
+    font-size: 12px;
+    color: #fff;
+    
+    cursor: pointer;
+}
+
+
+/*공지*/
+#notice {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+#notice table {
+    width: 1000px;
+    margin: 0 auto;
+    
+    border-collapse: collapse;
+    border-top: 2px solid #666
+}
+
+#notice table tr {
+    height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#notice table tr.top {
+    background: #f7f7f7;
+}
+
+#notice table tr td:nth-child(1) {
+    width: 120px;
+    text-align: center;
+}
+
+#notice table tr td:nth-child(2) a {
+    display: inline-block;
+    width: 600px;
+    
+    font-size: 14px;
+    color: #333;
+}
+
+#notice table tr td:nth-child(3) {
+    font-size: 12px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+#notice table tr td:nth-child(4) {
+    font-size: 12px;
+    padding-right: 30px;
+}
+
+#notice table td a:hover {
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+
+/*페이지네이션 글작성버튼 */
+#pagination {
+	width:1200px;
+	margin: 50px auto;
+	position: relative;
+}
+
+#pagination ul {
+	justify-content : center;
+}
+
+#pagination button {
+	position: absolute;
+	top: 0;
+	right: 115px;
+	
+	width: 65px;
+    height: 35px;
+    background: #030c33;
+    
+    font-size: 12px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
