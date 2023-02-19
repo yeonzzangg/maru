@@ -23,6 +23,7 @@
 <c:url value="/notice/list" var="noticeLink" />
 <c:url value="/review/list" var="reviewLink" />
 <c:url value="/program/list" var="programLink" />
+<c:url value="/book/calendar" var="bookLink" />
 
 <c:url value="/member/info" var="memberInfoLink" >
 	<c:param name="userId" value="${userId }" />
@@ -67,7 +68,7 @@
                         <li><a href="#a">오시는길</a></li>
                     </ul>
                 </li>
-                <li><a href="#a">천문대 이용안내</a>
+                <li><a href="${bookLink }">천문대 이용안내</a>
                     <ul class="sub">
                         <li><a href="#a">이용시간/요금안내</a></li>
                         <li><a href="#a">시설소개</a></li>

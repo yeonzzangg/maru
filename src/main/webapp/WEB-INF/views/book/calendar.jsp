@@ -53,6 +53,7 @@
 <body>
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
+	
 	<table class="Calendar">
         <thead>
             <tr>
@@ -76,11 +77,9 @@
         <tbody>
         </tbody>
     </table>
-	
+
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
 
-<c:url value="/program/reservation_1" var="resLink">
-</c:url>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -92,7 +91,7 @@ const ctx = "${pageContext.request.contextPath}";
         let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
         let today = new Date();     // 페이지를 로드한 날짜를 저장
         today.setHours(0,0,0,0);    // 비교 편의를 위해 today의 시간을 초기화
-
+        
         // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
         function buildCalendar() {
 
@@ -101,8 +100,8 @@ const ctx = "${pageContext.request.contextPath}";
 
             let tbody_Calendar = document.querySelector(".Calendar > tbody");
             document.getElementById("calYear").innerText = nowMonth.getFullYear();             // 연도 숫자 갱신
-            document.getElementById("calMonth").innerText = leftPad(nowMonth.getMonth() + 1);  // 월 숫자 갱신
-
+            document.getElementById("calMonth").innerText = nowMonth.getMonth() + 1;  // 월 숫자 갱신
+            
             while (tbody_Calendar.rows.length > 0) {                        // 이전 출력결과가 남아있는 경우 초기화
                 tbody_Calendar.deleteRow(tbody_Calendar.rows.length - 1);
             }
@@ -116,11 +115,13 @@ const ctx = "${pageContext.request.contextPath}";
             for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {   // day는 날짜를 저장하는 변수, 이번달 마지막날까지 증가시키며 반복  
 
                 let nowColumn = nowRow.insertCell();        // 새 열을 추가하고 td
-                //nowColumn.innerText = leftPad(nowDay.getDate());      // 추가한 열에 날짜 입력
-                nowColumn.innerHTML = "<p>" + leftPad(nowDay.getDate()) + "</p>"
-                						+ "<a href='${resLink}'><button>예약</button></a>";
                 
-            
+                nowColumn.innerHTML = "<form action='/book/book' method='get'><p>" + nowDay.getDate() + "</p>"
+                					+ "<input type='hidden' name='bookDate' value='"
+                					+ nowMonth.getFullYear() + "-" + (nowMonth.getMonth() + 1) + "-"+ nowDay.getDate() + "'>"
+                					+ "<input type='submit' value='예약'></form>";
+                						
+                
                 if (nowDay.getDay() == 0) {                 // 일요일인 경우 글자색 빨강으로
                     nowColumn.style.color = "#DC143C";
                 }
@@ -142,8 +143,11 @@ const ctx = "${pageContext.request.contextPath}";
                     nowColumn.onclick = function () { choiceDate(this); }
                 }
             }
-            
+            for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
+            	
+            }
         }
+        		
 
         // 날짜 선택
         function choiceDate(nowColumn) {
@@ -172,6 +176,9 @@ const ctx = "${pageContext.request.contextPath}";
             }
             return value;
         }
+        
+        
     </script>
+
 </body>
 </html>
