@@ -58,7 +58,6 @@ public class BookController {
 		
 		List<BookDto> bookList = service.bookList(book, member_userId); 
 		model.addAttribute("bookList", bookList);
-		System.out.println(bookList);
 	}
 	
 	// 예매취소
