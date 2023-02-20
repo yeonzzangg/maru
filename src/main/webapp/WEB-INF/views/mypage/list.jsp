@@ -18,6 +18,9 @@
 	<c:url value="/member/info" var="memberInfoLink">
 		<c:param name="userId" value="${userIdValue }"></c:param>
 	</c:url>
+	<c:url value="/mypage/reviewList" var="reviewListLink">
+		<c:param name="userId" value="${userIdValue }"></c:param>
+	</c:url>
 	
 	<c:url value="/book/list" var="bookListLink" />
 	
@@ -28,7 +31,7 @@
 			<ul>
 				<li><a href="${memberInfoLink }">계정정보</a></li>
 				<li><a href="${bookListLink }">예약내역</a></li>
-				<li><a href="${bookListLink }"> </a>내가쓴 글</li>
+				<li><a href="${reviewListLink }">내가쓴 글</a></li>
 				<li><a href="${bookListLink }">문의내역</a></li>
 			</ul>
 		</div>

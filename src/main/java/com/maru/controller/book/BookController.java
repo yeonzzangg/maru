@@ -62,8 +62,9 @@ public class BookController {
 	
 	// 예매취소
 	@GetMapping("remove")
-	public String remove(int number) {
+	public String remove(int number, RedirectAttributes rttr) {
 		service.remove(number);
+		rttr.addFlashAttribute("message", "취소 되었습니다.");
 		
 		return "redirect:/book/list";
 	}

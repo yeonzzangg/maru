@@ -21,6 +21,9 @@ public interface ReviewService {
 	int update(ReviewDto review);
 
 	int remove(int number);
+	
+	// 내가 쓴 리뷰
+	List<ReviewDto> getUserReviewList(String userId, int page, PageInfo pageInfo);
 
 
 }

@@ -23,4 +23,8 @@ public interface ReviewMapper {
 
 	int delete(int number);
 
+	int getUserCountReview(String userId);
+
+	List<ReviewDto> getUserReviewList(String userId, int records, int offset);
+
 }

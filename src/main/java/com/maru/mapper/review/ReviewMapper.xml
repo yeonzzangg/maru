@@ -91,4 +91,27 @@
  	WHERE number = #{number}
  	</delete>
  	
+ 	 <!-- 회원 게시물 갯수 -->
+ 	<select id="getUserCountReview" resultType="int">
+ 	SELECT COUNT(*) FROM review
+ 	WHERE
+ 		member_userId = #{userId}
+ 	</select>
+ 	
+ 	 <!-- 회원 리뷰 목록 -->
+ 	<select id="getUserReviewList" resultType="com.maru.domain.review.ReviewDto">
+ 	SELECT
+ 		number,
+		title,
+		member_userId,
+		insertDate
+ 	FROM
+ 		review
+	WHERE
+	member_userId = #{userId}
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	LIMIT #{offset}, #{records}
+ 	</select>
+ 	
  </mapper>

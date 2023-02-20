@@ -83,4 +83,39 @@ public class ReviewServiceImp implements ReviewService {
 		return mapper.delete(number);
 	}
 	
+	@Override
+	public List<ReviewDto> getUserReviewList(String userId, int page, PageInfo pageInfo) {
+		int records = 10; // 게시글 갯수
+		int offset = (page - 1) * records; // 어디서부터
+		
+		int countAll = mapper.getUserCountReview(userId); // 총 게시물 갯수
+		int lastPage = (countAll - 1) / records + 1; // 마지막 페이지
+		 
+		// 5페이지씩 보이게
+		int leftPageNumber = (page - 1) / 5 * 5 + 1;
+		int rightPageNumber = leftPageNumber + 4;
+		rightPageNumber = Math.min(rightPageNumber, lastPage);
+		
+		// 이전 버튼 유무
+		boolean hasPrevButton = page > 5;
+		// 다음 버튼 유무
+		boolean hasNextButton = page <= ((lastPage - 1) / 5 * 5);
+		
+		// 이전버튼 눌렀을 때 가는 페이지 번호
+		int jumpPrevPageNumber = (page - 1) / 5 * 5 - 4;
+		// 다음버튼 눌렀을 때 가는 페이지 번호
+		int jumpNextPageNumber = (page - 1) / 5 * 5 + 6; 
+		
+		pageInfo.setHasPrevButton(hasPrevButton);
+		pageInfo.setHasNextButton(hasNextButton);
+		pageInfo.setJumpPrevPageNumber(jumpPrevPageNumber);
+		pageInfo.setJumpNextPageNumber(jumpNextPageNumber);
+		pageInfo.setCurrentPageNumber(page);
+		pageInfo.setLeftPageNumber(leftPageNumber);
+		pageInfo.setRightPageNumber(rightPageNumber);
+		pageInfo.setLastPageNumber(lastPage);
+		
+		return mapper.getUserReviewList(userId, records, offset);
+	}
+	
 }
