@@ -18,9 +18,8 @@
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
-	<form action="" method="post">
 	    <table>
-			<h2>${userIdValue } 님의 예매내역
+			<h2>${userIdValue } 님의 결제내역
 			</h2>
 			<tr>
 				<td>관람일</td>
@@ -39,32 +38,16 @@
 			</tr>
 			<tr>
 				<td>관람인원</td>
-				<td id="personnel">${book.personnel }</td>
-			</tr>
-			<tr>
-				<td>결제금액</td>
-				<td id="total"></td>
+				<td>${book.personnel }
+				</td>
 			</tr>
 	    </table>
-	    <input type="submit" value="결제하기" />
-	</form>
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
 const ctx = "${pageContext.request.contextPath}";
-
-window.onload = function () { total(); }
-
-function total() {
-	const personnel = document.querySelector("#personnel").innerText;
-	const total = personnel * 5000;
-	console.log(personnel);
-	console.log(total);
-	
-	document.querySelector("#total").innerText = total + "원";
-};
 </script>
 </body>
 </html>

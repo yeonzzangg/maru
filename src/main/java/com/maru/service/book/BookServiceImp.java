@@ -1,5 +1,7 @@
 package com.maru.service.book;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,5 +22,13 @@ public class BookServiceImp implements BookService {
 		return mapper.insert(book); 
 	}
 	
+	@Override
+	public List<BookDto> bookList(BookDto book, String member_userId){
+		return mapper.bookList(book, member_userId);
+	}
 	
+	@Override
+	public int remove(int number) {
+		return mapper.delete(number);
+	}
 }

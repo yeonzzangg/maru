@@ -5,10 +5,48 @@
   
  <mapper namespace="com.maru.mapper.book.BookMapper">
  
+ 	<!-- 예매 -->
  	<insert id="insert">
  	INSERT INTO book (member_userId, name, bookDate, bookTime, personnel)
  	VALUES (#{member_userId}, #{name}, #{bookDate}, #{bookTime}, #{personnel})
  	</insert>
  
+ 	<!-- 예매확인 -->
+  	<select id="select" resultType="com.maru.domain.book.BookDto">
+ 	SELECT
+ 		number,
+ 		member_userId,
+ 		name,
+ 		bookDate,
+ 		bookTime,
+ 		personnel
+ 	FROM
+ 		book
+ 	WHERE
+ 		number = #{number}
+ 	</select>
+ 	
+ 	<!-- 예약 목록 -->
+ 	<select id="bookList" resultType="com.maru.domain.book.BookDto">
+ 	SELECT
+ 		number,
+ 		member_userId,
+ 		name,
+ 		bookDate,
+ 		bookTime,
+ 		personnel
+ 	FROM
+ 		book
+ 	WHERE
+ 		member_userId = #{member_userId}
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	</select>
+ 	
+ 	<!-- 예약 삭제 -->
+ 	<delete id="delete">
+ 	DELETE FROM book
+ 	WHERE number = #{number}
+ 	</delete>
  
  </mapper>

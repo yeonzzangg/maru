@@ -17,37 +17,16 @@
 	<sec:authentication property="name" var="userIdValue"/>
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
-	
-	<form action="" method="post">
-	    <table>
-			<h2>${userIdValue } 님의 예매내역
-			</h2>
-			<tr>
-				<td>관람일</td>
-				<td>${book.bookDate }
-				</td>
-			</tr>
-			<tr>
-				<td>관람시간</td>
-				<td>${book.bookTime }
-				</td>
-			</tr>
-			<tr>
-				<td>예매자명</td>
-				<td>${book.name }
-				</td>
-			</tr>
-			<tr>
-				<td>관람인원</td>
-				<td id="personnel">${book.personnel }</td>
-			</tr>
-			<tr>
-				<td>결제금액</td>
-				<td id="total"></td>
-			</tr>
-	    </table>
-	    <input type="submit" value="결제하기" />
-	</form>
+		
+		<div>
+			<h2>${userIdValue } 님의 마이페이지</h2>
+			<ul>
+				<c:url value="/"></c:url>
+				<li>예약내역</li>
+			</ul>
+		</div>
+		
+
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
     
@@ -55,16 +34,12 @@
 <script type="text/javascript">
 const ctx = "${pageContext.request.contextPath}";
 
-window.onload = function () { total(); }
-
-function total() {
-	const personnel = document.querySelector("#personnel").innerText;
-	const total = personnel * 5000;
-	console.log(personnel);
-	console.log(total);
-	
-	document.querySelector("#total").innerText = total + "원";
+/* message 경고창 */
+const message = "${message}";
+if (message != '') {
+	alert(message);
 };
+
 </script>
 </body>
 </html>
