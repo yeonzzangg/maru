@@ -213,6 +213,12 @@ main p.txt2 {
     margin: 0px auto;
 }
 
+#notice h2 {
+    font-size: 30px;
+    text-align: center;
+    margin: 80px 0 30px 0;
+}
+
 #notice table {
     width: 1000px;
     margin: 0 auto;

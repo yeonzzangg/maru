@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="../../css/notice.css">
+<link rel="stylesheet" href="../../css/review/reviewList.css">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <!-- CSS only -->
@@ -23,8 +23,8 @@
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 		
-	
     <div id="notice">
+		<h2>내 리뷰</h2>
         <table>
         	<c:forEach items="${reviewList }" var="review">
         	
@@ -49,9 +49,6 @@
 		  <c:if test="${pageInfo.currentPageNumber != 1 }">
 			  <c:url value="/review/list" var="listLink">
 			  		<c:param name="page" value="1"></c:param>
-			  		<c:param name="q" value="${param.q }"></c:param>
-			  		<c:param name="t" value="${param.t }"></c:param>
-			  		<c:param name="category" value="${param.category }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angles-left"></i>
@@ -62,9 +59,6 @@
 		  <c:if test="${pageInfo.hasPrevButton}">
 			  <c:url value="/review/list" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpPrevPageNumber}"></c:param>
-			  		<c:param name="q" value="${param.q }"></c:param>
-			  		<c:param name="t" value="${param.t }"></c:param>
-			  		<c:param name="category" value="${param.category }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angle-left"></i>
@@ -74,9 +68,6 @@
 		  <c:forEach begin="${pageInfo.leftPageNumber }" end="${pageInfo.rightPageNumber }" var="pageNumber">
 		  	<c:url value="/review/list" var="listLink">
 		  		<c:param name="page" value="${pageNumber }"></c:param>
-		  		<c:param name="q" value="${param.q }"></c:param>
-		  		<c:param name="t" value="${param.t }"></c:param>
-		  		<c:param name="category" value="${param.category }"></c:param>
 		  	</c:url>
 		  	
 		  	<!-- 현재 페이지 active 클래스 추가 -->
@@ -89,9 +80,6 @@
 		  <c:if test="${pageInfo.hasNextButton}">
 			  <c:url value="/review/list" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpNextPageNumber}"></c:param>
-			  		<c:param name="q" value="${param.q }"></c:param>
-			  		<c:param name="t" value="${param.t }"></c:param>
-			  		<c:param name="category" value="${param.category }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angle-right"></i>
@@ -102,9 +90,6 @@
 		  <c:if test="${pageInfo.currentPageNumber != pageInfo.lastPageNumber }">				  	
 			  <c:url value="/review/list" var="listLink">
 			  		<c:param name="page" value="${pageInfo.lastPageNumber }"></c:param>
-			  		<c:param name="q" value="${param.q }"></c:param>
-			  		<c:param name="t" value="${param.t }"></c:param>
-			  		<c:param name="category" value="${param.category }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angles-right"></i>

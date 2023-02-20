@@ -1,0 +1,83 @@
+/* 글씨폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+
+
+/* 예매내역 */
+#bookInfo {
+	width: 1200px;
+    margin: 0px auto 100px;
+    text-align: center;
+}
+
+#bookInfo h2 {
+	font-size: 30px;
+    margin: 80px 0 50px 0;
+}
+
+#bookInfo table {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#bookInfo table tr td {
+	border-collapse: collapse;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	height: 60px;
+	text-align: left;
+	padding-left: 40px;
+}
+
+#bookInfo table tr td:nth-child(1) {
+	width: 250px;
+	font-weight: bold;
+	border-right: 1px solid #ddd;
+}
+
+#bookInfo table tr.first td {
+	border-top: 2px solid #030c33;
+}
+
+#bookInfo input[type="submit"] {
+	width: 160px;
+    height: 50px;
+    background: #030c33;
+    color: #fff;
+    font-size: 16px;
+    border-radius:40px;
+    
+    cursor: pointer;
+    
+    margin: 50px 0 0 0;
+}
+
+
+
+
+
+
+
+
+
+
