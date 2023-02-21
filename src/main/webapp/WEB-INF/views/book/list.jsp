@@ -22,14 +22,14 @@
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
 
-	<h2>${userIdValue }님의 예매내역</h2>
+	<h2 id="bookListTitle">${userIdValue }님의 예매내역</h2>
 	
 	<c:forEach items="${bookList }" var="book">
 	<c:url value="/book/remove" var="removeLink">
 		<c:param name="number" value="${ book.number }"></c:param>
 	</c:url>
 	
-	<div id="bookInfo">
+	<div id="bookInfoList">
 	    <table>
 			<tr class="first">
 				<td>관람일</td>
@@ -47,8 +47,12 @@
 				<td>관람인원</td>
 				<td>${book.personnel }</td>
 			</tr>
+			<tr>
+				<td class="last" colspan="2">
+					<a href="${removeLink }">취소하기</a>
+				</td>
+			</tr>
 	    </table>
-		<a href="${removeLink }">취소하기</a></td>
 	</div>
 	</c:forEach>
 	

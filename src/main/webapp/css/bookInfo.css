@@ -21,7 +21,10 @@ li {
     list-style: none;
 }
 
-
+#bookListTitle {
+	text-align: center;
+	padding: 80px 0 50px 0;
+}
 
 /* 예매내역 */
 #bookInfo {
@@ -73,7 +76,62 @@ li {
 }
 
 
+/* 예매 목록 */
+#bookInfoList {
+	width: 1200px;
+    margin: 0px auto 100px;
+}
 
+#bookInfoList table {
+	margin: 0 auto;
+	width: 900px;
+	border-bottom: 2px solid #030c33;
+}
+
+#bookInfoList table tr td {
+	border-collapse: collapse;
+	border-top: 1px solid #ddd;
+	height: 60px;
+	text-align: left;
+	padding-left: 40px;
+	
+	position: relative;
+}
+
+#bookInfoList table tr td:nth-child(1) {
+	width: 250px;
+	font-weight: bold;
+	border-right: 1px solid #ddd;
+	background: #eee;
+}
+
+#bookInfoList table tr.first td {
+	border-top: 2px solid #030c33;
+}
+
+#bookInfoList table tr td.last {
+	border-right: none;
+	height: 80px;
+	background: none;
+}
+
+#bookInfoList a {
+	display: inline-block;
+	width: 160px;
+    height: 50px;
+    background: #030c33;
+    text-align:center;
+    
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 50px;
+    cursor: pointer;
+    
+    position: absolute;
+    top: 15px;
+    right: 40px;
+}
 
 
 
