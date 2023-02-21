@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>공지</title>
 <link rel="stylesheet" href="../../css/review/reviewList.css">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -17,23 +17,57 @@
 
 </head>
 <body>
-	<sec:authentication property="name" var="userIdValue"/>
-	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
-		
+	
+	<!--메인-->
+    <main>
+        <p class="txt1">CUSTOMER<span></span></p>
+        <h2>별마로 천문대<br>고객센터<b>입니다.</b></h2>
+        <p class="txt2">정확한 공지와 신속한 답변을 위해 노력하겠습니다</p>
+    </main>
+
+    <!--중간메뉴-->
+    <div id="under_nav">
+        <ul>
+            <li><a href="#a">공지사항</a></li>
+            <li><a href="#a">자주 묻는 질문</a></li>
+            <li><a href="#a">1 : 1 문의</a></li>
+            <li><a href="#a">별마로 후기</a></li>
+        </ul>
+		<h2>문의 내역</h2>
+    </div>
+
+    
+    <!--검색라인-->
+    <div id="search">
+        <c:url value="/qna/list" var="listLink"></c:url>
+		<form action="${listLink }" role="search">
+	        <!-- 검색 범위 설정 -->
+			<select name="t" class="searchSelect">
+				<option value="all">전체</option>
+				<option value="title" ${param.t == 'title' ? 'selected' : '' }>제목</option>
+				<option value="content" ${param.t == 'content' ? 'selected' : '' }>본문</option>
+				<option value="writer" ${param.t == 'writer' ? 'selected' : '' }>작성자</option>
+			</select>
+	        <input name="q" value="${param.q }" type="search" placeholder="검색어를 입력하세요">
+	        <input type="submit" value="검색">
+        </form>
+    </div>
+    
+    <!--공지-->
     <div id="notice">
-		<h2>내 후기 목록</h2>
         <table>
-        	<c:forEach items="${reviewList }" var="review">
+        	<c:forEach items="${qnaList }" var="qna">
         	
-       		<c:url value="/review/get" var="getLink">
-        		<c:param name="number" value="${review.number }"></c:param>
+       		<c:url value="/qna/get" var="qnaLink">
+        		<c:param name="number" value="${qna.number }"></c:param>
        		</c:url>
         		<tr>
-        			<td>${review.number }</td>
-        			<td><a href="${getLink}">${review.title }</a></td>
-        			<td>${review.member_userId }</td>
-        			<td>${review.insertDate }</td>
+        			<td>${qna.number }</td>
+        			<td><a href="${qnaLink}">${qna.title }</a></td>
+        			<td>${qna.member_userId }</td>
+        			<td>${qna.status }</td>
+        			<td>${qna.insertDate }</td>
         		</tr>
         	</c:forEach>
         </table>
@@ -45,9 +79,10 @@
         <ul class="pagination">
 		  <!-- 첫페이지로 가는 버튼 : 1페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != 1 }">
-			  <c:url value="/mypage/reviewList" var="listLink">
-			  		<c:param name="userId" value="${userIdValue }"></c:param>
+			  <c:url value="/review/list" var="listLink">
 			  		<c:param name="page" value="1"></c:param>
+			  		<c:param name="q" value="${param.q }"></c:param>
+			  		<c:param name="t" value="${param.t }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angles-left"></i>
@@ -56,9 +91,10 @@
 		  
 		  <!-- 이전 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasPrevButton}">
-			  <c:url value="/mypage/reviewList" var="listLink">
-			  		<c:param name="userId" value="${userIdValue }"></c:param>
+			  <c:url value="/qna/list" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpPrevPageNumber}"></c:param>
+			  		<c:param name="q" value="${param.q }"></c:param>
+			  		<c:param name="t" value="${param.t }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angle-left"></i>
@@ -66,9 +102,10 @@
 		  </c:if>
 	  
 		  <c:forEach begin="${pageInfo.leftPageNumber }" end="${pageInfo.rightPageNumber }" var="pageNumber">
-		  	<c:url value="/mypage/reviewList" var="listLink">
-		  		<c:param name="userId" value="${userIdValue }"></c:param>
+		  	<c:url value="/qna/list" var="listLink">
 		  		<c:param name="page" value="${pageNumber }"></c:param>
+		  		<c:param name="q" value="${param.q }"></c:param>
+		  		<c:param name="t" value="${param.t }"></c:param>
 		  	</c:url>
 		  	
 		  	<!-- 현재 페이지 active 클래스 추가 -->
@@ -79,9 +116,10 @@
 		  
 		  <!-- 다음 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasNextButton}">
-			  <c:url value="/mypage/reviewList" var="listLink">
-			  		<c:param name="userId" value="${userIdValue }"></c:param>
+			  <c:url value="/qna/list" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpNextPageNumber}"></c:param>
+			  		<c:param name="q" value="${param.q }"></c:param>
+			  		<c:param name="t" value="${param.t }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angle-right"></i>
@@ -90,9 +128,10 @@
 		  
 		  <!-- 마지막 페이지로 가는 버튼 : 마지막페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != pageInfo.lastPageNumber }">				  	
-			  <c:url value="/mypage/reviewList" var="listLink">
-			  		<c:param name="userId" value="${userIdValue }"></c:param>
+			  <c:url value="/qna/list" var="listLink">
 			  		<c:param name="page" value="${pageInfo.lastPageNumber }"></c:param>
+			  		<c:param name="q" value="${param.q }"></c:param>
+			  		<c:param name="t" value="${param.t }"></c:param>
 			  </c:url>
 			  <li class="page-item"><a class="page-link" href="${listLink }">
 			  	<i class="fa-solid fa-angles-right"></i>
@@ -100,14 +139,14 @@
 		  </c:if>
 	   </ul>
    </div>
-		
-
+    
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
 const ctx = "${pageContext.request.contextPath}";
+
 
 </script>
 </body>

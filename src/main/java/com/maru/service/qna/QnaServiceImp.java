@@ -1,4 +1,4 @@
-package com.maru.service.review;
+package com.maru.service.qna;
 
 import java.util.List;
 
@@ -7,26 +7,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.maru.domain.notice.PageInfo;
-import com.maru.domain.review.ReviewDto;
-import com.maru.mapper.review.ReviewMapper;
-
+import com.maru.domain.qna.QnaDto;
+import com.maru.mapper.qna.QnaMapper;
 
 @Service
 @Transactional
-public class ReviewServiceImp implements ReviewService {
-	
+public class QnaServiceImp implements QnaService {
+ 
 	@Autowired
-	private ReviewMapper mapper;
+	private QnaMapper mapper;
 	
+	// qna 등록
 	@Override
-	public int insert(ReviewDto review) {
-		return mapper.insert(review);
+	public int insert(QnaDto qna) {
+		return mapper.insert(qna);
 	}
 	
-	// 리뷰 목록
+	// qna 목록
 	@Override
-	public List<ReviewDto> listReview(int page, String type, String keyword, PageInfo pageInfo, String category) {
-		
+	public List<QnaDto> listQna(int page, String type, String keyword, PageInfo pageInfo){
 		int records = 10; // 게시글 갯수
 		int offset = (page - 1) * records; // 어디서부터
 		
@@ -58,39 +57,17 @@ public class ReviewServiceImp implements ReviewService {
 		pageInfo.setLastPageNumber(lastPage);
 		
 	
-		return mapper.list(offset, records, type,  "%" + keyword + "%", category);
+		return mapper.list(offset, records, type,  "%" + keyword + "%");
+	 
 	}
 	
-	// 게시물 보기
+	// 내가 쓴 qna목록
 	@Override
-	public ReviewDto get(int number, String member_userId) {
-		return mapper.select(number, member_userId);
-	}
-	
-	@Override
-	public ReviewDto get(int number) {
-		return get(number, null);
-	}
-	
-	// 수정
-	@Override
-	public int update(ReviewDto review) {
-		return mapper.update(review);
-	}
-	
-	//삭제
-	@Override
-	public int remove(int number) {
-		return mapper.delete(number);
-	}
-	
-	// 내가 쓴 리뷰목록
-	@Override
-	public List<ReviewDto> getUserReviewList(String userId, int page, PageInfo pageInfo) {
+	public List<QnaDto> getUserQnaList(String userId, int page, PageInfo pageInfo) {
 		int records = 10; // 게시글 갯수
 		int offset = (page - 1) * records; // 어디서부터
 		
-		int countAll = mapper.getUserCountReview(userId); // 총 게시물 갯수
+		int countAll = mapper.getUserCountQna(userId); // 총 게시물 갯수
 		int lastPage = (countAll - 1) / records + 1; // 마지막 페이지
 		 
 		// 5페이지씩 보이게
@@ -117,7 +94,8 @@ public class ReviewServiceImp implements ReviewService {
 		pageInfo.setRightPageNumber(rightPageNumber);
 		pageInfo.setLastPageNumber(lastPage);
 		
-		return mapper.getUserReviewList(userId, records, offset);
+		return mapper.getUserQnaList(userId, records, offset);
 	}
+	
 	
 }

@@ -5,13 +5,13 @@
   
  <mapper namespace="com.maru.mapper.review.ReviewMapper">
  
- 	<!-- 글 입력 -->
+ 	<!-- 리뷰 입력 -->
  	<insert id="insert" >
  	INSERT INTO review (category, title, content, member_userId)
  	VALUES (#{category}, #{title}, #{content}, #{member_userId})
  	</insert>
  
- 	<!-- 게시물 갯수 -->
+ 	<!-- 리뷰 갯수 -->
  	<select id="countAll" resultType="int">
  	SELECT COUNT(*) FROM review
  	WHERE
@@ -26,7 +26,7 @@
  		</trim>
  	</select>
  	
- 	<!-- 공지 목록 -->
+ 	<!-- 리뷰 목록 -->
  	<select id="list" resultType="com.maru.domain.review.ReviewDto">
  	SELECT
  		number,
@@ -59,7 +59,7 @@
  	LIMIT #{offset}, #{records}
  	</select>
  	
- 	<!-- 게시글 보기(get) -->
+ 	<!-- 리뷰 보기(get) -->
  	<select id="select" resultType="com.maru.domain.review.ReviewDto">
  	SELECT
  		number,
@@ -74,7 +74,7 @@
  		number = #{number}
  	</select>
  	
- 	<!-- 글 수정 -->
+ 	<!-- 리뷰 수정 -->
  	<update id="update">
  	UPDATE review
  	SET
@@ -85,20 +85,20 @@
  		number = #{number}
  	</update>
  	
- 	<!-- 글 삭제 -->
+ 	<!-- 리뷰 삭제 -->
  	<delete id="delete">
  	DELETE FROM review
  	WHERE number = #{number}
  	</delete>
  	
- 	 <!-- 회원 게시물 갯수 -->
+ 	 <!-- 내가 쓴 리뷰 갯수 -->
  	<select id="getUserCountReview" resultType="int">
  	SELECT COUNT(*) FROM review
  	WHERE
  		member_userId = #{userId}
  	</select>
  	
- 	 <!-- 회원 리뷰 목록 -->
+ 	 <!-- 내가 쓴 리뷰 목록 -->
  	<select id="getUserReviewList" resultType="com.maru.domain.review.ReviewDto">
  	SELECT
  		number,

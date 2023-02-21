@@ -24,6 +24,9 @@
 	<c:url value="/mypage/reviewList" var="reviewListLink">
 		<c:param name="userId" value="${userIdValue }"></c:param>
 	</c:url>
+	<c:url value="/mypage/qnaList" var="qnaListLink">
+		<c:param name="userId" value="${userIdValue }"></c:param>
+	</c:url>
 	
 	<c:url value="/book/list" var="bookListLink" />
 	
@@ -46,7 +49,7 @@
 				</li>
 				<li>
 					<i class="fa-brands fa-quora"></i><br>
-					<a href="${bookListLink }">문의내역</a>
+					<a href="${qnaListLink }">문의내역</a>
 				</li>
 			</ul>
 		</div>

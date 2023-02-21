@@ -25,6 +25,7 @@
 <c:url value="/program/list" var="programLink" />
 <c:url value="/book/calendar" var="bookLink" />
 <c:url value="/mypage/list" var="mypageLink" />
+<c:url value="/qna/insert" var="qnaLink" />
 
 <c:url value="/member/info" var="memberInfoLink" >
 	<c:param name="userId" value="${userId }" />
@@ -93,7 +94,7 @@
                     <ul class="sub">
                         <li><a href="${noticeLink }">공지사항</a></li>
                         <li><a href="#a">자주하는 질문</a></li>
-                        <li><a href="#a">1:1 문의</a></li>
+                        <li><a href=" ${qnaLink }">1:1 문의</a></li>
                         <li><a href="${reviewLink }">후기</a></li>
                     </ul>
                 </li>

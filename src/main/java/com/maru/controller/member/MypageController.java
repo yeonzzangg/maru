@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.maru.domain.book.BookDto;
 import com.maru.domain.member.MemberDto;
 import com.maru.domain.notice.NoticeDto;
 import com.maru.domain.notice.PageInfo;
+import com.maru.domain.qna.QnaDto;
 import com.maru.domain.review.ReviewDto;
 import com.maru.service.member.MemberService;
+import com.maru.service.qna.QnaService;
 import com.maru.service.review.ReviewService;
 
 @Controller
@@ -24,6 +27,8 @@ public class MypageController {
 	
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired QnaService qnaService;
 	
 	
 	@GetMapping("list")
@@ -40,6 +45,17 @@ public class MypageController {
 		
 		List<ReviewDto> list = reviewService.getUserReviewList(userId, page, pageInfo);
 		model.addAttribute("reviewList", list); 
+	}
+	
+	@GetMapping("qnaList")
+	public void qnaList(
+			@RequestParam(name = "page", defaultValue = "1") int page, // 페이지
+			PageInfo pageInfo,
+			Model model,
+			String userId) {
+		
+		List<QnaDto> list = qnaService.getUserQnaList(userId, page, pageInfo);
+		model.addAttribute("qnaList", list); 
 	}
 	
 }

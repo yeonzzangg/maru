@@ -17,23 +17,25 @@
 
 </head>
 <body>
-	<sec:authentication property="name" var="userIdValue"/>
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 		
+	<sec:authentication property="name" var="userIdValue"/>
+
     <div id="notice">
-		<h2>내 후기 목록</h2>
+		<h2>내 문의내역</h2>
         <table>
-        	<c:forEach items="${reviewList }" var="review">
+        	<c:forEach items="${qnaList }" var="qna">
         	
-       		<c:url value="/review/get" var="getLink">
-        		<c:param name="number" value="${review.number }"></c:param>
+       		<c:url value="/qna/get" var="getLink">
+        		<c:param name="number" value="${qna.number }"></c:param>
        		</c:url>
         		<tr>
-        			<td>${review.number }</td>
-        			<td><a href="${getLink}">${review.title }</a></td>
-        			<td>${review.member_userId }</td>
-        			<td>${review.insertDate }</td>
+        			<td>${qna.number }</td>
+        			<td><a href="${getLink}">${qna.title }</a></td>
+        			<td>${qna.member_userId }</td>
+        			<td>${qna.insertDate }</td>
+        			<td>${qna.status }</td>
         		</tr>
         	</c:forEach>
         </table>
@@ -45,7 +47,7 @@
         <ul class="pagination">
 		  <!-- 첫페이지로 가는 버튼 : 1페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != 1 }">
-			  <c:url value="/mypage/reviewList" var="listLink">
+			  <c:url value="/mypage/qnaList" var="listLink">
 			  		<c:param name="userId" value="${userIdValue }"></c:param>
 			  		<c:param name="page" value="1"></c:param>
 			  </c:url>
@@ -56,7 +58,7 @@
 		  
 		  <!-- 이전 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasPrevButton}">
-			  <c:url value="/mypage/reviewList" var="listLink">
+			  <c:url value="/mypage/qnaList" var="listLink">
 			  		<c:param name="userId" value="${userIdValue }"></c:param>
 			  		<c:param name="page" value="${ pageInfo.jumpPrevPageNumber}"></c:param>
 			  </c:url>
@@ -66,7 +68,7 @@
 		  </c:if>
 	  
 		  <c:forEach begin="${pageInfo.leftPageNumber }" end="${pageInfo.rightPageNumber }" var="pageNumber">
-		  	<c:url value="/mypage/reviewList" var="listLink">
+		  	<c:url value="/mypage/qnaList" var="listLink">
 		  		<c:param name="userId" value="${userIdValue }"></c:param>
 		  		<c:param name="page" value="${pageNumber }"></c:param>
 		  	</c:url>
@@ -79,7 +81,7 @@
 		  
 		  <!-- 다음 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasNextButton}">
-			  <c:url value="/mypage/reviewList" var="listLink">
+			  <c:url value="/mypage/qnaList" var="listLink">
 			  		<c:param name="userId" value="${userIdValue }"></c:param>
 			  		<c:param name="page" value="${ pageInfo.jumpNextPageNumber}"></c:param>
 			  </c:url>
@@ -90,7 +92,7 @@
 		  
 		  <!-- 마지막 페이지로 가는 버튼 : 마지막페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != pageInfo.lastPageNumber }">				  	
-			  <c:url value="/mypage/reviewList" var="listLink">
+			  <c:url value="/mypage/qnaList" var="listLink">
 			  		<c:param name="userId" value="${userIdValue }"></c:param>
 			  		<c:param name="page" value="${pageInfo.lastPageNumber }"></c:param>
 			  </c:url>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.maru.mapper.qna.QnaMapper">
+ 
+ 	<!-- qna 입력 -->
+ 	<insert id="insert" >
+ 	INSERT INTO qna (title, content, member_userId)
+ 	VALUES (#{title}, #{content}, #{member_userId})
+ 	</insert>
+ 	
+ 	<!-- qna 갯수 -->
+ 	<select id="countAll" resultType="int">
+ 	SELECT COUNT(*) FROM qna
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'title'">
+	 		title LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'content'">
+	 		OR content LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	</select>
+ 	
+ 	<!-- qna 목록 -->
+ 	<select id="list" resultType="com.maru.domain.qna.QnaDto">
+ 	SELECT
+ 		number,
+		title,
+		member_userId,
+		insertDate,
+		status
+ 	FROM
+ 		qna
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'title'">
+	 		OR title LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'content'">
+	 		OR content LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'writer'">
+	 		OR member_userId LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	LIMIT #{offset}, #{records}
+ 	</select>
+ 	
+ 	<!-- 내가 쓴 qna 갯수 -->
+ 	<select id="getUserCountQna" resultType="int">
+ 	SELECT COUNT(*) FROM qna
+ 	WHERE
+ 		member_userId = #{userId}
+ 	</select>
+ 	
+ 	 <!-- 내가 쓴 qna 목록 -->
+ 	<select id="getUserQnaList" resultType="com.maru.domain.qna.QnaDto">
+ 	SELECT
+ 		number,
+		title,
+		member_userId,
+		insertDate,
+		status
+ 	FROM
+ 		qna
+	WHERE
+	member_userId = #{userId}
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	LIMIT #{offset}, #{records}
+ 	</select>
+ 	
+ 
+ </mapper>
