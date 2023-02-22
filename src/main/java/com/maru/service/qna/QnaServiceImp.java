@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.maru.domain.notice.PageInfo;
 import com.maru.domain.qna.QnaDto;
+import com.maru.domain.review.ReviewDto;
 import com.maru.mapper.qna.QnaMapper;
 
 @Service
@@ -95,6 +96,12 @@ public class QnaServiceImp implements QnaService {
 		pageInfo.setLastPageNumber(lastPage);
 		
 		return mapper.getUserQnaList(userId, records, offset);
+	}
+	
+	// 게시물 보기
+	@Override
+	public QnaDto get(int number, String member_userId) {
+		return mapper.select(number, member_userId);
 	}
 	
 	

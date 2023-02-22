@@ -18,7 +18,6 @@
 <c:url value="/member/login" var="loginLink" />
 <c:url value="/member/logout" var="logoutLink" />
 <c:url value="/member/signup" var="signupLink" />
-<c:url value="/admin/memberList" var="memberListLink" />
 <c:url value="/main/list" var="mainLink" />
 <c:url value="/notice/list" var="noticeLink" />
 <c:url value="/review/list" var="reviewLink" />
@@ -26,6 +25,9 @@
 <c:url value="/book/calendar" var="bookLink" />
 <c:url value="/mypage/list" var="mypageLink" />
 <c:url value="/qna/insert" var="qnaLink" />
+
+<c:url value="/admin/memberList" var="memberListLink" />
+
 
 <c:url value="/member/info" var="memberInfoLink" >
 	<c:param name="userId" value="${userId }" />
@@ -51,7 +53,7 @@
 	    	<c:if test="${ admin }">
 	    		<p>${userId }님 </p>
 		        <p class="line"></p>
-		        <p><a href="${ memberListLink }">회원목록</a></p>
+		        <p><a href="${ mypageLink }">관리자페이지</a></p>
 		        <p class="line"></p>
 	        	<p><a href="${ logoutLink }">로그아웃</a></p>
 	    	</c:if>

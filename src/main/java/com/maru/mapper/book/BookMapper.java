@@ -14,4 +14,8 @@ public interface BookMapper {
 
 	int delete(int number);
 
+	int countAll(String type, String keyword);
+
+	List<BookDto> list(int offset, int records, String type, String keyword);
+
 }

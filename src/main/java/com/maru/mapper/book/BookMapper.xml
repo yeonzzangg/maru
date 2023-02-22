@@ -26,7 +26,56 @@
  		number = #{number}
  	</select>
  	
- 	<!-- 예약 목록 -->
+ 	<!-- book 갯수 -->
+ 	<select id="countAll" resultType="int">
+ 	SELECT COUNT(*) FROM book
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'member_userId'">
+	 		member_userId LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'name'">
+	 		OR name LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'bookDate'">
+	 		OR bookDate LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	</select>
+ 	
+ 	<!-- 전체 book 목록 -->
+ 	<select id="list" resultType="com.maru.domain.book.BookDto">
+ 	SELECT
+ 		number,
+		member_userId,
+		name,
+		bookDate,
+		bookTime,
+ 		personnel
+ 	FROM
+ 		book
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'member_userId'">
+	 		OR member_userId LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'name'">
+	 		OR name LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'bookDate'">
+	 		OR bookDate LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	GROUP BY number	
+ 	ORDER BY number DESC
+ 	LIMIT #{offset}, #{records}
+ 	</select>
+ 	
+ 	<!--  내 예약 목록 -->
  	<select id="bookList" resultType="com.maru.domain.book.BookDto">
  	SELECT
  		number,

@@ -14,59 +14,50 @@
 	</insert>
 	
 	<!-- 전체 회원 수 -->
-<!-- 	<select id="selectAllMemberCount" resultType="int">
-	 	SELECT COUNT(*)
-	 	FROM member
-	 	WHERE
-		<trim prefixOverrides="OR">
-			<if test="type == 'all' or type == 'userId'">
- 			OR userId LIKE #{keyword}
-			</if>
-			<if test="type == 'all' or type == 'name'">
- 			OR name LIKE #{keyword}
-			</if>
-		</trim>
- 	</select> -->
+ 	<select id="countAll" resultType="int">
+ 	SELECT COUNT(*) FROM member
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'member_userId'">
+	 		userId LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'name'">
+	 		OR name LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'email'">
+	 		OR email LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	</select>
 	
-	<!-- 모든 회원정보 List로 가져오기 , 페이지네이션 & 검색 기능 추가 -->
- 	<select id="selectMemberList" resultType="com.maru.domain.member.MemberDto">
- 		SELECT 
-	 		userId,
-	 		name,
-	 		'숨김' password,
-	 		email
-	 	FROM
-	 		member
-	 	ORDER BY
-	 		userId
+	<!-- 회원목록-->
+ 	<select id="list" resultType="com.maru.domain.member.MemberDto">
+ 	SELECT
+		userId,
+ 		name,
+ 		'숨김' password,
+ 		email
+ 	FROM
+ 		member
+ 	WHERE
+ 		<trim prefixOverrides="OR">
+	 		<if test="type == 'all' or type == 'member_userId'">
+	 		OR userId LIKE #{keyword}
+	 		</if>
+	 		
+	 		<if test="type == 'all' or type == 'name'">
+	 		OR name LIKE #{keyword}
+	 		</if>
+
+	 		<if test="type == 'all' or type == 'email'">
+	 		OR email LIKE #{keyword}
+	 		</if>
+ 		</trim>
+ 	ORDER BY userId
+ 	LIMIT #{offset}, #{records}
  	</select>
- 	
-<!--  	<select id="selectMemberList" resultMap="memberListMap">
-	 	SELECT 
-	 		userId,
-	 		name,
-	 		'숨김' password,
-	 		email
-	 	FROM
-	 		member
-	 	WHERE
-	 		<trim prefixOverrides="OR">
-	 			<if test="type == 'all' or type == 'userId'">
-	 			OR userId LIKE #{keyword}
-	 			</if>
-	 			<if test="type == 'all' or type == 'name'">
-	 			OR name LIKE #{keyword}
-	 			</if>
-	 		</trim>
-	 	ORDER BY name
-	 	LIMIT #{offset}, #{records}
- 	</select>
- 	<resultMap type="com.maru.domain.member.MemberDto" id="memberListMap">
- 		<id column="userId" property="userId" />
- 		<result column="name" property="name" />
- 		<result column="password" property="password" />
- 		<result column="email" property="email" />
- 	</resultMap> -->
  	
  	<select id="selectById" resultMap="memberMap">
  		SELECT 

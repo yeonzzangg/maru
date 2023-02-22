@@ -10,8 +10,7 @@ public interface MemberMapper {
 	public int insert(MemberDto member);
 
 	// 회원목록
-	List<MemberDto> selectMemberList();
-	//public List<MemberDto> selectMemberList(int offset, int records, String string, String type);
+	public List<MemberDto> list(int offset, int records, String type, String keyword);
 
 	// 회원정보
 	public MemberDto selectById(String userId);
@@ -24,6 +23,9 @@ public interface MemberMapper {
 
 	// 회원 이메일
 	public MemberDto selectByEmail(String email);
+
+	public int countAll(String type, String keyword);
+
 
 	//전체회원정보 검색가능하기 위해 select count(*) 
 	//public int selectAllMemberCount(String type, String keyword);

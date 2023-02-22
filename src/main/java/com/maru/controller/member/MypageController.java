@@ -36,6 +36,7 @@ public class MypageController {
 		
 	}
 	
+	// 내 리뷰 목록
 	@GetMapping("reviewList")
 	public void reviewList(
 			@RequestParam(name = "page", defaultValue = "1") int page, // 페이지
@@ -47,6 +48,7 @@ public class MypageController {
 		model.addAttribute("reviewList", list); 
 	}
 	
+	// 내 문의 목록
 	@GetMapping("qnaList")
 	public void qnaList(
 			@RequestParam(name = "page", defaultValue = "1") int page, // 페이지

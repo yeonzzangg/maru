@@ -17,7 +17,10 @@
 
 </head>
 <body>
+	<sec:authorize access="isAuthenticated()" var="loggedIn" />
+	<sec:authorize access="hasAuthority('admin')" var="admin" />
 	<sec:authentication property="name" var="userIdValue"/>
+	
 	<c:url value="/member/info" var="memberInfoLink">
 		<c:param name="userId" value="${userIdValue }"></c:param>
 	</c:url>
@@ -27,31 +30,58 @@
 	<c:url value="/mypage/qnaList" var="qnaListLink">
 		<c:param name="userId" value="${userIdValue }"></c:param>
 	</c:url>
-	
 	<c:url value="/book/list" var="bookListLink" />
+	
+	<c:url value="/admin/memberList" var="memberListLink" />
+	<c:url value="/admin/qnaList" var="allQnaList" />
+	<c:url value="/admin/bookList" var="memberBookLink" />
+	
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 		
 		<div id="mypage">
+			<c:if test="${not admin }">
 			<h2>${userIdValue }님의 마이페이지</h2>
-			<ul>
-				<li>
-					<i class="fa-solid fa-user"></i><br>
-					<a href="${memberInfoLink }">계정정보</a>
-				</li>
-				<li>
-					<i class="fa-solid fa-star"></i><br>
-					<a href="${bookListLink }">예매내역</a>
-				</li>
-				<li>
-					<i class="fa-solid fa-pen"></i><br>
-					<a href="${reviewListLink }">나의 리뷰</a>
-				</li>
-				<li>
-					<i class="fa-brands fa-quora"></i><br>
-					<a href="${qnaListLink }">문의내역</a>
-				</li>
-			</ul>
+				<ul>
+					<li>
+						<i class="fa-solid fa-user"></i><br>
+						<a href="${memberInfoLink }">계정정보</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-star"></i><br>
+						<a href="${bookListLink }">예매내역</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-pen"></i><br>
+						<a href="${reviewListLink }">나의 리뷰</a>
+					</li>
+					<li>
+						<i class="fa-brands fa-quora"></i><br>
+						<a href="${qnaListLink }">문의내역</a>
+					</li>
+				</ul>
+			</c:if>
+			<c:if test="${ admin }">
+			<h2>${userIdValue }님의 관리자페이지</h2>
+				<ul>
+					<li>
+						<i class="fa-solid fa-user"></i><br>
+						<a href="${memberInfoLink }">계정정보</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-star"></i><br>
+						<a href="${memberListLink }">회원목록</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-pen"></i><br>
+						<a href="${memberBookLink }">예매목록</a>
+					</li>
+					<li>
+						<i class="fa-brands fa-quora"></i><br>
+						<a href="${allQnaList }">문의내역</a>
+					</li>
+				</ul>
+			</c:if>
 		</div>
 		
 

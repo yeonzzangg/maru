@@ -79,5 +79,20 @@
  	LIMIT #{offset}, #{records}
  	</select>
  	
+ 	<!-- 리뷰 보기(get) -->
+ 	<select id="select" resultType="com.maru.domain.qna.QnaDto">
+ 	SELECT
+ 		number,
+ 		title,
+ 		content,
+ 		insertDate,
+ 		member_userId,
+ 		status
+ 	FROM
+ 		qna
+ 	WHERE
+ 		number = #{number}
+ 	</select>
+ 	
  
  </mapper>

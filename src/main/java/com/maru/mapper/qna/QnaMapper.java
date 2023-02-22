@@ -18,6 +18,8 @@ public interface QnaMapper {
 
 	List<QnaDto> myQnaList(String member_userId, String userId, int records, int offset);
 
+	QnaDto select(int number, String member_userId);
+
 
 
 }

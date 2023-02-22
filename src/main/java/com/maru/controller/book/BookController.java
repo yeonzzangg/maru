@@ -62,9 +62,14 @@ public class BookController {
 	
 	// 예매취소
 	@GetMapping("remove")
-	public String remove(int number, RedirectAttributes rttr) {
+	public String remove(int number, RedirectAttributes rttr, String userId, String removeId) {
 		service.remove(number);
 		rttr.addFlashAttribute("message", "취소 되었습니다.");
+		
+		if ( userId.equals(userId)) {
+			return "redirect:/admin/bookList?t=member_userId&q=" + removeId;
+		};
+		System.out.println("로그인아이디" + userId + "취소티켓아이디" + removeId);
 		
 		return "redirect:/book/list";
 	}

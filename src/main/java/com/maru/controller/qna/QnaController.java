@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.maru.domain.notice.PageInfo;
 import com.maru.domain.qna.QnaDto;
+import com.maru.domain.review.ReviewDto;
 import com.maru.service.qna.QnaService;
 
 @Controller
@@ -47,6 +48,19 @@ public class QnaController {
 		
 		List<QnaDto> list = service.listQna(page, type, keyword, pageInfo);
 		model.addAttribute("qnaList", list); 
+	}
+	
+	// 게시글
+	@GetMapping("get")
+	public void get(int number, Authentication auth, Model model) {
+		String member_userId = null;
+		 
+		if (auth != null) {
+			member_userId = auth.getName();
+		}
+		
+		QnaDto qna = service.get(number, member_userId);
+		model.addAttribute("qna", qna);
 	}
 	
 	

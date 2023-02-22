@@ -291,7 +291,44 @@ main p.txt2 {
 }
 
 
+/* 회원 예약 목록(관리자) */
+#adminBookList {
+	width: 1200px;
+	margin: 100px auto 0;
+	text-align: center;
+}
 
+#adminBookList table {
+    width: 1000px;
+    margin: 0 auto;
+    
+    border-collapse: collapse;
+    border-top: 2px solid #666
+}
+
+#adminBookList table thead {
+	background: #eee;
+	font-weight: bold;
+}
+
+#adminBookList table tr {
+    height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#adminBookList table tbody tr:hover {
+	background: #eee;
+}
+
+#adminBookList table a {
+	color: #333;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#adminBookList table a:hover {
+	font-weight: bold;
+}
 
 
 

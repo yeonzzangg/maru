@@ -13,6 +13,8 @@ public interface QnaService {
 
 	List<QnaDto> getUserQnaList(String userId, int page, PageInfo pageInfo);
 
+	QnaDto get(int number, String member_userId);
+
 
 
 }

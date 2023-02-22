@@ -18,17 +18,17 @@
 	
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
-	<!--오늘의 프로그램-->
-    <div id="table">
+    <div id="bookInfo">
         <h2>천문대 예약</h2>
+        
 		<form action="/book/bookInfo/" method="get">
-		
 		<input type="hidden" value="${ userIdValue}" name="member_userId"/>
 			<table>
-				<tr>
+				<tr class="first">
 					<td>관람일</td>
-					<td>${book.bookDate }</td>
-					<td><input name="bookDate" type="hidden" value="${book.bookDate }"/></td>
+					<td>${book.bookDate }
+					<input name="bookDate" type="hidden" value="${book.bookDate }"/>
+					</td>
 				</tr>
 				<tr>
 					<td>예매자명</td>
