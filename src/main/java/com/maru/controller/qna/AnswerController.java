@@ -80,7 +80,6 @@ public class AnswerController {
 	@GetMapping("get/{number}")
 	@ResponseBody
 	public AnswerDto get(@PathVariable int number) {
-		System.out.println("컨트롤러"+number);
 		return service.getById(number); 
 	}
 

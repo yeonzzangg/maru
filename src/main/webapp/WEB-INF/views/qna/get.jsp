@@ -136,6 +136,8 @@
 
 const ctx = "${pageContext.request.contextPath}";
 
+
+
 listAnswer();
 
 // 수정창 보여주기
@@ -274,7 +276,8 @@ document.querySelector("#answerBtn").addEventListener("click", function() {
 	.then(data => {
 		document.querySelector("#qna_content").value = "";
 	})
-	.then(() => listAnswer());
+	.then(() => location.reload() );
+	
 });
 
 //삭제확인 버튼 클릭하면 삭제 form 전송

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.maru.domain.qna.AnswerDto;
 import com.maru.mapper.qna.AnswerMapper;
+import com.maru.mapper.qna.QnaMapper;
 
 @Service
 @Transactional
@@ -15,11 +16,21 @@ public class AnswerServiceImp implements AnswerService {
 	
 	@Autowired
 	private AnswerMapper mapper;
+	
+	@Autowired
+	private QnaMapper qnaMapper;
 
 	
 	@Override
 	public int insert(AnswerDto answer) {
-		return mapper.insert(answer); 
+		int cnt = mapper.insert(answer); 
+		int qna_number = answer.getQna_number();
+		System.out.println(cnt);
+		if (cnt == 1) {
+			int status = 1;
+			qnaMapper.updateStatus(status, qna_number);
+		}
+		return cnt;
 	}
 	
 	@Override
@@ -34,7 +45,7 @@ public class AnswerServiceImp implements AnswerService {
 	
 	@Override
 	public AnswerDto getById(int number) {
-		return mapper.getById(number);
+		return mapper.getById(number); 
 	}
 	
 	@Override

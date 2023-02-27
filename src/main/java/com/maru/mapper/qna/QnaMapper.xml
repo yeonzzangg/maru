@@ -94,5 +94,11 @@
  		number = #{number}
  	</select>
  	
+	<update id="updateStatus">
+	UPDATE qna
+	SET status = #{status}
+	WHERE number = #{qna_number} 	
+	</update>
+ 	
  
  </mapper>
