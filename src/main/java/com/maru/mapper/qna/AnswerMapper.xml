@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.maru.mapper.qna.AnswerMapper">
+ 
+ 	<!-- 답변 입력 -->
+ 	<insert id="insert">
+ 	INSERT INTO answer (member_userId, qna_number, content)
+ 	VALUES (#{member_userId}, #{qna_number}, #{content})
+ 	</insert>
+ 	
+ 	<!-- qna 글 -->
+ 	<select id="listAnswerByBoardId" resultType="com.maru.domain.qna.AnswerDto">
+ 	SELECT
+ 		qna_number,
+ 		number,
+ 		content,
+ 		member_userId,
+ 		insertDate,
+ 		member_userId = #{username} editable
+ 	FROM
+ 		answer
+ 	WHERE
+ 		qna_number = #{qna_number}
+ 	ORDER BY
+ 		number DESC
+ 	</select>
+ 	
+ 	<!-- 답변 삭제 -->
+ 	<delete id="deleteById">
+ 	DELETE FROM answer
+ 	WHERE number = #{number}
+ 	</delete>
+ 	
+ 	<!-- 수정시 답변 가져오기 -->
+ 	<select id="getById" resultType="com.maru.domain.qna.AnswerDto">
+ 	SELECT
+ 		number,
+ 		qna_number,
+ 		content,
+ 		member_userId,
+ 		insertDate
+ 	FROM
+ 		answer
+ 	WHERE
+ 		number = #{number}
+ 	</select>
+ 	
+ 	<!-- 답변 수정 -->
+ 	<update id="update">
+ 	UPDATE
+ 		answer
+ 	SET
+ 		content = #{content}
+ 	WHERE
+ 		number = #{number}
+ 	</update>
+ 
+ </mapper>

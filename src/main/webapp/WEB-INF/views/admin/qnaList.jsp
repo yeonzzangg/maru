@@ -19,22 +19,19 @@
 <body>
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
-    <!--중간메뉴-->
-    <div id="adminTitle">
+    <div id="adminBookList">
 		<h2>문의 목록</h2>
-    </div>
 
     
     <!--검색라인-->
     <div id="search">
-        <c:url value="/qna/list" var="listLink"></c:url>
+        <c:url value="/admin/qnaList" var="listLink"></c:url>
 		<form action="${listLink }" role="search">
 	        <!-- 검색 범위 설정 -->
 			<select name="t" class="searchSelect">
 				<option value="all">전체</option>
-				<option value="title" ${param.t == 'title' ? 'selected' : '' }>제목</option>
-				<option value="content" ${param.t == 'content' ? 'selected' : '' }>본문</option>
 				<option value="writer" ${param.t == 'writer' ? 'selected' : '' }>작성자</option>
+				<option value="content" ${param.t == 'content' ? 'selected' : '' }>본문</option>
 			</select>
 	        <input name="q" value="${param.q }" type="search" placeholder="검색어를 입력하세요">
 	        <input type="submit" value="검색">
@@ -44,19 +41,27 @@
     <!--공지-->
     <div id="notice">
         <table>
-        	<c:forEach items="${qnaList }" var="qna">
-        	
-       		<c:url value="/qna/get" var="qnaLink">
-        		<c:param name="number" value="${qna.number }"></c:param>
-       		</c:url>
-        		<tr>
-        			<td>${qna.number }</td>
-        			<td><a href="${qnaLink}">${qna.title }</a></td>
-        			<td>${qna.member_userId }</td>
-        			<td>${qna.status }</td>
-        			<td>${qna.insertDate }</td>
-        		</tr>
-        	</c:forEach>
+	        <thead>
+	        	<tr>
+	        		<td>답변상태</td>
+	        		<td>질문</td>
+	        		<td>작성자</td>
+	        		<td>작성일</td>
+	        	</tr>
+	        	</thead>
+	        	<tbody>
+		       	<c:forEach items="${qnaList }" var="qna">
+		      		<c:url value="/qna/get" var="qnaLink">
+		       			<c:param name="number" value="${qna.number }"></c:param>
+		      		</c:url>
+		       		<tr>
+		       			<td>${qna.status }</td>
+		       			<td><a href="${qnaLink}">${qna.title }</a></td>
+		       			<td>${qna.member_userId }</td>
+		       			<td>${qna.insertDate }</td>
+		       		</tr>
+		       	</c:forEach>
+        	</tbody>
         </table>
      </div>
         
@@ -126,7 +131,8 @@
 		  </c:if>
 	   </ul>
    </div>
-    
+   
+   </div>
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
     

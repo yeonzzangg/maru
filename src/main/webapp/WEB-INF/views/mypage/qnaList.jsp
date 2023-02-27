@@ -25,19 +25,26 @@
     <div id="notice">
 		<h2>내 문의내역</h2>
         <table>
+        	<thead>
+	        	<tr>
+	        		<td>답변상태</td>
+	        		<td>질문</td>
+	        		<td>작성자</td>
+	        		<td>작성일</td>
+	        	</tr>
+        	</thead>
+        	<tbody>
         	<c:forEach items="${qnaList }" var="qna">
-        	
-       		<c:url value="/qna/get" var="getLink">
-        		<c:param name="number" value="${qna.number }"></c:param>
-       		</c:url>
+	       		<c:url value="/qna/get" var="getLink">
+	        		<c:param name="number" value="${qna.number }"></c:param>
+	       		</c:url>
         		<tr>
-        			<td>${qna.number }</td>
-        			<td><a href="${getLink}">${qna.title }</a></td>
-        			<td>${qna.member_userId }</td>
-        			<td>${qna.insertDate }</td>
         			<td>${qna.status }</td>
+        			<td><a href="${getLink}">${qna.title }</a></td>
+        			<td>${qna.insertDate }</td>
         		</tr>
         	</c:forEach>
+        	</tbody>
         </table>
      </div>
         
