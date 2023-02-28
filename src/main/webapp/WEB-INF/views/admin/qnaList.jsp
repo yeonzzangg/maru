@@ -39,7 +39,7 @@
     </div>
     
     <!--공지-->
-    <div id="notice">
+    <div id="qnaTable">
         <table>
 	        <thead>
 	        	<tr>
@@ -55,7 +55,9 @@
 		       			<c:param name="number" value="${qna.number }"></c:param>
 		      		</c:url>
 		       		<tr>
-		       			<td>${qna.status }</td>
+		       			<td>
+		       				<p class=" ${qna.status eq '답변완료' ? 'qna_status' : '' }">${qna.status }</p>
+		       			</td>
 		       			<td><a href="${qnaLink}">${qna.title }</a></td>
 		       			<td>${qna.member_userId }</td>
 		       			<td>${qna.insertDate }</td>
@@ -71,7 +73,7 @@
         <ul class="pagination">
 		  <!-- 첫페이지로 가는 버튼 : 1페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != 1 }">
-			  <c:url value="/review/list" var="listLink">
+			  <c:url value="/admin/qnaList" var="listLink">
 			  		<c:param name="page" value="1"></c:param>
 			  		<c:param name="q" value="${param.q }"></c:param>
 			  		<c:param name="t" value="${param.t }"></c:param>
@@ -83,7 +85,7 @@
 		  
 		  <!-- 이전 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasPrevButton}">
-			  <c:url value="/qna/list" var="listLink">
+			  <c:url value="/admin/qnaList" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpPrevPageNumber}"></c:param>
 			  		<c:param name="q" value="${param.q }"></c:param>
 			  		<c:param name="t" value="${param.t }"></c:param>
@@ -94,7 +96,7 @@
 		  </c:if>
 	  
 		  <c:forEach begin="${pageInfo.leftPageNumber }" end="${pageInfo.rightPageNumber }" var="pageNumber">
-		  	<c:url value="/qna/list" var="listLink">
+		  	<c:url value="/admin/qnaList" var="listLink">
 		  		<c:param name="page" value="${pageNumber }"></c:param>
 		  		<c:param name="q" value="${param.q }"></c:param>
 		  		<c:param name="t" value="${param.t }"></c:param>
@@ -108,7 +110,7 @@
 		  
 		  <!-- 다음 페이지 버튼 -->
 		  <c:if test="${pageInfo.hasNextButton}">
-			  <c:url value="/qna/list" var="listLink">
+			  <c:url value="/admin/qnaList" var="listLink">
 			  		<c:param name="page" value="${ pageInfo.jumpNextPageNumber}"></c:param>
 			  		<c:param name="q" value="${param.q }"></c:param>
 			  		<c:param name="t" value="${param.t }"></c:param>
@@ -120,7 +122,7 @@
 		  
 		  <!-- 마지막 페이지로 가는 버튼 : 마지막페이지일때 빼고 다 존재함 -->
 		  <c:if test="${pageInfo.currentPageNumber != pageInfo.lastPageNumber }">				  	
-			  <c:url value="/qna/list" var="listLink">
+			  <c:url value="/admin/qnaList" var="listLink">
 			  		<c:param name="page" value="${pageInfo.lastPageNumber }"></c:param>
 			  		<c:param name="q" value="${param.q }"></c:param>
 			  		<c:param name="t" value="${param.t }"></c:param>
@@ -139,6 +141,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
 const ctx = "${pageContext.request.contextPath}";
+
 
 
 </script>

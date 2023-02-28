@@ -20,7 +20,7 @@ public interface QnaMapper {
 
 	QnaDto select(int number, String member_userId);
 
-	int updateStatus(int status, int qna_number);
+	int updateStatus(String status, int qna_number);
 
 
 

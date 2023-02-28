@@ -31,7 +31,6 @@ public class AnswerController {
 	// 답변 입력
 	@PostMapping("add")
 	@ResponseBody
-	@PreAuthorize("isAuthenticated()") // 로그인 여부
 	public Map<String, Object> add(@RequestBody AnswerDto answer, Authentication auth) {
 		
 		answer.setMember_userId(auth.getName());

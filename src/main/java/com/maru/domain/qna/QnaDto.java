@@ -10,6 +10,6 @@ public class QnaDto {
 	private String member_userId;
 	private String title;
 	private String content;
-	private int status;
+	private String status;
 	private LocalDate insertDate;
 }

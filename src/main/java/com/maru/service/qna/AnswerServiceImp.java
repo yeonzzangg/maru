@@ -25,9 +25,9 @@ public class AnswerServiceImp implements AnswerService {
 	public int insert(AnswerDto answer) {
 		int cnt = mapper.insert(answer); 
 		int qna_number = answer.getQna_number();
-		System.out.println(cnt);
+		
 		if (cnt == 1) {
-			int status = 1;
+			String status = "답변완료";
 			qnaMapper.updateStatus(status, qna_number);
 		}
 		return cnt;
