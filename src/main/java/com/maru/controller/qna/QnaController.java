@@ -3,6 +3,7 @@ package com.maru.controller.qna;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,7 +52,7 @@ public class QnaController {
 	}
 	
 	// 게시글
-	@GetMapping("get")
+	@GetMapping({"get", "modify"})
 	public void get(int number, Authentication auth, Model model) {
 		String member_userId = null;
 		 
@@ -61,6 +62,22 @@ public class QnaController {
 		
 		QnaDto qna = service.get(number, member_userId);
 		model.addAttribute("qna", qna);
+	}
+	
+	@PostMapping("modify")
+	public String modify(QnaDto qna) {
+		service.update(qna); 
+		int num = qna.getNumber();
+		
+		return "redirect:/qna/get?number=" + num;
+	}
+
+	@PostMapping("remove")
+	public String remove(int number, Authentication auth) {
+		service.remove(number);
+		String userId = auth.getName();
+		
+		return "redirect:/mypage/qnaList?userId=" + userId;
 	}
 	
 	

@@ -15,6 +15,11 @@ public interface QnaService {
 
 	QnaDto get(int number, String member_userId);
 
+	int update(QnaDto qna);
+
+	int remove(int number);
+
+
 
 
 }

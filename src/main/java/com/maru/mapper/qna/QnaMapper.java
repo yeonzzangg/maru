@@ -22,6 +22,10 @@ public interface QnaMapper {
 
 	int updateStatus(String status, int qna_number);
 
+	int update(QnaDto qna);
+
+	int delete(int number);
+
 
 
 }

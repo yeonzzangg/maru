@@ -38,20 +38,19 @@
 			<sec:authentication property="name" var="userIdValue" />
 			<c:if test="${qna.member_userId == userIdValue}" >
 				<c:if test="${qna.status eq '답변대기' }">
-				
 				<!-- 삭제버튼 -->
 				<c:url value="/qna/remove" var="removeLink"></c:url>
 				<form id="removeForm" action="${removeLink }" method="post">
 					<input type="hidden" name="number" value="${qna.number }"/>
 				</form>
-				<input class="removeBtn" type="submit" value="삭제" data-bs-toggle="modal" data-bs-target="#removeModal"/>
-				<!-- 수정버튼 -->
-				<c:url value="/qna/modify" var="modifyLink">
-					<c:param name="number" value="${qna.number }"></c:param>
-				</c:url>
-				<a  href="${modifyLink }">
-					<button type="button" class="modifyBtn">수정</button>
-				</a>
+					<input class="removeBtn" type="submit" value="삭제" data-bs-toggle="modal" data-bs-target="#removeModal"/>
+					<!-- 수정버튼 -->
+					<c:url value="/qna/modify" var="modifyLink">
+						<c:param name="number" value="${qna.number }"></c:param>
+					</c:url>
+					<a  href="${modifyLink }">
+						<button type="button" class="modifyBtn">수정</button>
+					</a>
 				</c:if>
 			</c:if>
 		</div>
@@ -97,7 +96,7 @@
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalLabel">삭제 확인</h1>
+	        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      <div class="modal-body">
@@ -137,7 +136,10 @@
 
 const ctx = "${pageContext.request.contextPath}";
 
-
+//삭제확인 버튼 클릭하면 삭제 form 전송
+document.querySelector("#removeConfirmButton").addEventListener("click", function() {
+	document.querySelector("#removeForm").submit();
+});
 
 listAnswer();
 
@@ -282,10 +284,7 @@ document.querySelector("#answerBtn").addEventListener("click", function() {
 	
 });
 
-//삭제확인 버튼 클릭하면 삭제 form 전송
-document.querySelector("#removeConfirmButton").addEventListener("click", function() {
-	document.querySelector("#removeForm").submit();
-});
+
 
 </script>
 </body>

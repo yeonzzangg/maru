@@ -31,7 +31,8 @@
  	SELECT
  		number,
 		title,
-		insertDate
+		insertDate,
+		category
  	FROM
  		notice
  	WHERE

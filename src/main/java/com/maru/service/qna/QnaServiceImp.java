@@ -104,5 +104,14 @@ public class QnaServiceImp implements QnaService {
 		return mapper.select(number, member_userId);
 	}
 	
+	@Override
+	public int update(QnaDto qna) {
+		return mapper.update(qna);
+	}
+	
+	@Override
+	public int remove(int number) {
+		return mapper.delete(number);
+	}
 	
 }

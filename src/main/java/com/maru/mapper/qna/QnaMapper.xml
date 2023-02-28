@@ -79,7 +79,7 @@
  	LIMIT #{offset}, #{records}
  	</select>
  	
- 	<!-- 리뷰 보기(get) -->
+ 	<!-- 보기(get) -->
  	<select id="select" resultType="com.maru.domain.qna.QnaDto">
  	SELECT
  		number,
@@ -99,6 +99,22 @@
 	SET status = #{status}
 	WHERE number = #{qna_number} 	
 	</update>
+
+	<update id="update">
+	UPDATE qna
+	SET
+		title = #{title},
+		content = #{content}
+	WHERE
+		number = #{number} 	
+	</update>
+	
+	<delete id="delete">
+ 	DELETE FROM qna
+ 	WHERE number = #{number}
+ 	</delete>
+	
+	
  	
  
  </mapper>

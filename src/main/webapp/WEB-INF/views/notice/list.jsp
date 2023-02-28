@@ -96,6 +96,7 @@
        		</c:url>
         		<tr>
         			<td>${notice.number }</td>
+        			<td>${notice.category }</td>
         			<td><a href="${getLink}">${notice.title }</a></td>
         			<td>${notice.insertDate }</td>
         		</tr>

@@ -66,10 +66,9 @@ public class BookController {
 		service.remove(number);
 		rttr.addFlashAttribute("message", "취소 되었습니다.");
 		
-		if ( userId.equals(userId)) {
+		if ( userId.equals("admin")) {
 			return "redirect:/admin/bookList?t=member_userId&q=" + removeId;
 		};
-		System.out.println("로그인아이디" + userId + "취소티켓아이디" + removeId);
 		
 		return "redirect:/book/list";
 	}

@@ -27,6 +27,7 @@
 	<c:forEach items="${bookList }" var="book">
 	<c:url value="/book/remove" var="removeLink">
 		<c:param name="number" value="${ book.number }"></c:param>
+		<c:param name="userId" value="${ userIdValue }"></c:param>
 	</c:url>
 	
 	<div id="bookInfoList">
