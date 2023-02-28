@@ -11,7 +11,7 @@
  	VALUES (#{member_userId}, #{qna_number}, #{content})
  	</insert>
  	
- 	<!-- qna 글 -->
+ 	<!-- 답변리스트-->
  	<select id="listAnswerByBoardId" resultType="com.maru.domain.qna.AnswerDto">
  	SELECT
  		qna_number,

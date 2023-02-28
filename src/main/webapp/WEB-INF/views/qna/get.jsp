@@ -18,14 +18,18 @@
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
 	<sec:authorize access="hasAuthority('admin')" var="admin" />
+	<sec:authentication property="name" var="userIdValue"/>
+	
 	
 	<input type="hidden" value="${qna.member_userId }" />
 	<input type="hidden" id="number" value="${qna.number }" />
 	
 	<div id="NoticeGet">
-		<!-- qna 돌아가기 버튼 --><!-- 수정하기!!!! -->
+		<!-- qna 돌아가기 버튼 -->
 		<div class="topbtnBox">
-			<c:url value="/mypage/qnaList" var="listLink"></c:url>
+			<c:url value="/mypage/qnaList" var="listLink">
+				<c:param name="userId" value="${userIdValue }"></c:param>
+			</c:url>
 			<a href="${listLink }">
 				<button type="button" class="listBtn">내 문의 목록</button>
 			</a>
@@ -190,7 +194,7 @@ document.querySelector("#answerDeleteConfirmButton").addEventListener("click", f
 // 답변 리스트
 function listAnswer() {
 	const qna_number = document.querySelector("#number").value; 
-	const content = document.querySelector("#qna_content").value;
+	//const content = document.querySelector("#qna_content").value;
 	
 	fetch(`\${ctx}/answer/list/\${qna_number}`)
 	.then(res => res.json())

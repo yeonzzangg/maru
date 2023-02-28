@@ -22,8 +22,10 @@
 		
 	<sec:authentication property="name" var="userIdValue"/>
 
-    <div id="notice">
-		<h2>내 문의내역</h2>
+<div id="adminBookList">
+	<h2>내 문의내역</h2>
+
+    <div id="qnaTable">
         <table>
         	<thead>
 	        	<tr>
@@ -39,8 +41,11 @@
 	        		<c:param name="number" value="${qna.number }"></c:param>
 	       		</c:url>
         		<tr>
-        			<td>${qna.status }</td>
+        			<td>
+	       				<p class=" ${qna.status eq '답변완료' ? 'qna_status' : '' }">${qna.status }</p>
+	       			</td>
         			<td><a href="${getLink}">${qna.title }</a></td>
+        			<td>${qna.member_userId }</td>
         			<td>${qna.insertDate }</td>
         		</tr>
         	</c:forEach>
@@ -109,7 +114,7 @@
 		  </c:if>
 	   </ul>
    </div>
-		
+</div>
 
 	
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
