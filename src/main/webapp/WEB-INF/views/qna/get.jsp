@@ -7,11 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
- <style>
- .modifyDivNone {
- display: none;
- }
- </style>
 
 <link rel="stylesheet" href="../../css/get.css">
 <!-- JavaScript Bundle with Popper -->
@@ -71,24 +66,23 @@
 		</div>
 	</div>
 	
-	<!-- 답변입력 -->
-	<c:if test="${ admin }">
-		<div class="replyBox container">
-			<input class="replyContentInput" type="text" id="qna_content"
-				placeholder="답변을 입력해주세요."/><br>
-					
-			<button id="answerBtn" class="replyBnt btn btn-success" >답변 등록</button>
-		</div>
-	</c:if>
 	
 	<!-- 답변 -->
-		<div class="row">
-			<div class="col">
-				<div id="answerListContainer">
-					<!-- 답변 나오는 부분 -->
-				</div>
-			</div>
+	<div id="answer_wrap">
+		<!-- 답변리스트 -->
+		<div id="answerListContainer">
+			<!-- 답변 나오는 부분 -->
 		</div>
+			
+		<!-- 답변입력 -->
+		<c:if test="${ admin }">
+			<div class="answerBox container">
+				<textarea class="answerContentInput" type="text" id="qna_content"
+					placeholder="답변을 입력해주세요."></textarea>
+				<button id="answerBtn" class="replyBnt" >답변 등록</button>
+			</div>
+		</c:if>
+	</div>
 		
 	
 	<!-- qna 게시글 삭제 모달 -->
@@ -219,20 +213,21 @@ function listAnswer() {
 			/* 수정 삭제버튼 */
 			const editButton = 
 				`<button class="btn" data-answer-id="\${item.number}" id="\${modifyAnswerButtonId}"> 수정</button>
+				<span></span>
 				<button class="btn" data-bs-toggle="modal" data-bs-target="#answerDeleteModal" data-answer-id="\${item.number}" id="\${removeAnswerButtonId}"> 삭제</button>`
 								
 			const answerDiv = 
-				`<div class="reply_list">
-					<span class="row"></span>
-					<div class="replylist_top">
-						<p> \${item.member_userId}</p>
-						<p> \${item.insertDate}</p>
-						\${item.editable ? editButton : ''}
+				`<div class="answer_list">
+					<div class="answer_list_top">
+						<p> \${item.member_userId}
+							<span> \${item.insertDate}</span>
+						</p>
+						<p class="editButton"> \${item.editable ? editButton : ''}</p>
 					</div>
-					<p id="\${originContent}"> \${item.content}</p>
-					<p id="\${modifyAnswerBoxId}" class="modifyDivNone">
-						<input type="text" id="\${modifyAnswerInput}" />
-						<button type="button" id="\${answerModifyConfirmButton}" class="btn">수정확인</button>
+					<p class="originContent"><pre id="\${originContent}">\${item.content}</pre></p>
+					<div id="\${modifyAnswerBoxId}" class="modifyDivNone">
+						<textarea id="\${modifyAnswerInput}" ></textarea>
+						<button type="button" id="\${answerModifyConfirmButton}" class="answerModifyConfirmButton">수정확인</button>
 					</p>
 				</div>`; 
 				

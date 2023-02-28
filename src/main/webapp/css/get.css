@@ -128,3 +128,136 @@ ul {
 }
 
 
+/* 답변 */
+#answer_wrap {
+	width: 1200px;
+	margin: 0 auto 100px;
+}
+
+#answer_wrap .answerBox {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#answer_wrap .answerBox textarea {
+	margin: 30px auto;
+	width: 1000px;
+	height: 100px;
+	vertical-align: middle;
+	
+	outline: none;
+	padding: 10px;
+	border: 1px solid #666;
+}
+
+#answer_wrap .answerBox button {
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+	background: #030c33;
+	color: #fff;
+}
+
+#answer_wrap .answer_list {
+	width: 1100px;
+	margin: 0 auto 20px;
+	border-bottom: 1px solid #666;
+}
+
+#answer_wrap .answer_list_top {
+	position: relative;
+}
+
+#answer_wrap .answer_list_top p {
+	display: inline;
+	vertical-align: middle;
+}
+
+#answer_wrap .answer_list_top p:nth-child(1) {
+	font-weight: bold;
+}
+
+#answer_wrap .answer_list_top p span {
+	font-weight: normal;
+	padding-left: 20px;
+	font-size: 12px;
+	color: #666;
+}
+
+#answer_wrap .answer_list_top .editButton {
+	position: absolute;
+	right: 0;
+	vertical-align: middle;
+}
+
+#answer_wrap .answer_list_top .editButton .btn {
+	background: none;
+	color: #666;
+	border: 0;
+	font-size: 14px;
+	padding: 0;
+}
+
+#answer_wrap .answer_list_top .editButton span {
+	display: inline-block;
+	width: 1px;
+	height: 10px;
+	background: #666;
+	padding: 0;
+	margin: 0 10px;
+}
+
+#answer_wrap .answer_list .originContent {
+	margin-top: 10px;
+}
+
+#answer_wrap .answer_list textarea {
+	width: 1100px;
+	height: 200px;
+	
+	outline: none;
+	padding: 10px;
+	border: 1px solid #666;
+}
+
+#answer_wrap .answer_list .answerModifyConfirmButton {
+	width: 100px;
+	height: 50px;
+	background: #030c33;
+	color: #fff;
+	margin-left: 1000px;
+}
+
+
+.modifyDivNone {
+	 display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
