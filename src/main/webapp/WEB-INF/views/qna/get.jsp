@@ -37,7 +37,9 @@
 			<!-- 작성자와 authentication.name이 같아야 버튼 보여주기 -->
 			<sec:authentication property="name" var="userIdValue" />
 			<c:if test="${qna.member_userId == userIdValue}" >
-			<!--  qna 삭제버튼 -->
+				<c:if test="${qna.status eq '답변대기' }">
+				
+				<!-- 삭제버튼 -->
 				<c:url value="/qna/remove" var="removeLink"></c:url>
 				<form id="removeForm" action="${removeLink }" method="post">
 					<input type="hidden" name="number" value="${qna.number }"/>
@@ -50,6 +52,7 @@
 				<a  href="${modifyLink }">
 					<button type="button" class="modifyBtn">수정</button>
 				</a>
+				</c:if>
 			</c:if>
 		</div>
 		
