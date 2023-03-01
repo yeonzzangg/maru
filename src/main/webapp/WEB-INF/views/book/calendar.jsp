@@ -45,6 +45,28 @@
 	    </table>
    </div>
    
+   	<!-- 비회원 예매시 로그인유도 팝업 -->
+	<div class="modal fade" id="nonMemberModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        회원만 예약이 가능합니다. 로그인해주세요.
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <c:url value="/member/login" var="loginLink"></c:url>
+	        <a href="${loginLink }">
+	       		<button type="button" class="btn btn-primary">로그인</button>
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+   
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -84,7 +106,12 @@
                 nowColumn.innerHTML = "<form action='/book/book' method='get'><p>" + leftPad(nowDay.getDate()) + "</p>"
                 					+ "<input type='hidden' name='bookDate' value='"
                 					+ nowMonth.getFullYear() + "-" + (nowMonth.getMonth() + 1) + "-" + leftPad(nowDay.getDate()) + "'>"
-                					+ "<input class='bookSubmitBtn' type='submit' value='예매하기'></form>";
+                					+ "<sec:authorize access='isAuthenticated()'>"
+                					+ "<button class='bookSubmitBtn' type='submit'>예매하기</button>"
+                					+ "</sec:authorize></form>"
+                					+ "<sec:authorize access='not isAuthenticated()'>"
+                					+ "<button class='bookSubmitBtn' data-bs-toggle='modal' data-bs-target='#nonMemberModal' id='nonMemberInsertButton'>예매하기</button>"
+                					+ "</sec:authorize>"
                 						
                 
                 if (nowDay.getDay() == 0) {                 // 일요일인 경우 글자색 빨강으로

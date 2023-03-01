@@ -67,15 +67,16 @@ li {
 	margin-bottom: 10px;
 }
 
-#calendar .Calendar tbody tr td input {
+#calendar .Calendar tbody tr td button {
 	width: 80px;
 	height: 30px;
 	border-radius: 20px;
 	border: 1px solid #030c33;
 	font-size: 12px;
+	color: #030c33;
 }
 
-#calendar .Calendar tbody tr td input:hover {
+#calendar .Calendar tbody tr td button:hover {
 	border: 1px solid #030c33;
 	color: #fff;
 	background: #030c33;
