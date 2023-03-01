@@ -7,44 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<style>
-        td {
-            width: 50px;
-            height: 50px;
-        }
 
-        .Calendar { 
-            text-align: center;
-            margin: 0 auto; 
-        }
-
-        .Calendar>thead>tr:first-child>td { font-weight: bold; }
-
-        .Calendar>thead>tr:last-child>td {
-            background-color: gray;
-            color: white;
-        }        
-
-        .pastDay{ 
-        background-color: lightgray; }
-
-        .today{            
-            background-color: #FFCA64;            
-            cursor: pointer;
-        }
-
-        .futureDay{            
-            background-color: #FFFFFF;
-            cursor: pointer;
-        }
-
-        .futureDay.choiceDay, .today.choiceDay{            
-            background-color: #3E85EF;            
-            color: #fff;
-            cursor: pointer;
-        }
-    </style>
-<link rel="stylesheet" href="../../css/notice.css">
+<link rel="stylesheet" href="../../css/calendar.css">
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -54,41 +18,38 @@
 <body>
 	<jsp:include page="/WEB-INF/tags/nav.jsp"/>
 	
-	
-	<table class="Calendar">
-        <thead>
-            <tr>
-                <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
-                <td colspan="5">
-                    <span id="calYear"></span>년
-                    <span id="calMonth"></span>월
-                </td>
-                <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
-            </tr>
-            <tr>
-                <td>일</td>
-                <td>월</td>
-                <td>화</td>
-                <td>수</td>
-                <td>목</td>
-                <td>금</td>
-                <td>토</td>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    
+	<div id="calendar">
+	<h2>천문대 예약</h2>
+		<table class="Calendar">
+	        <thead>
+	            <tr>
+	                <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+	                <td colspan="5">
+	                    <span id="calYear"></span>년
+	                    <span id="calMonth"></span>월
+	                </td>
+	                <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+	            </tr>
+	            <tr>
+	                <td>일</td>
+	                <td>월</td>
+	                <td>화</td>
+	                <td>수</td>
+	                <td>목</td>
+	                <td>금</td>
+	                <td>토</td>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        </tbody>
+	    </table>
+   </div>
+   
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
-const ctx = "${pageContext.request.contextPath}";
-</script>
-<script>
-
-
+	const ctx = "${pageContext.request.contextPath}";
 
         window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
 
@@ -123,7 +84,7 @@ const ctx = "${pageContext.request.contextPath}";
                 nowColumn.innerHTML = "<form action='/book/book' method='get'><p>" + leftPad(nowDay.getDate()) + "</p>"
                 					+ "<input type='hidden' name='bookDate' value='"
                 					+ nowMonth.getFullYear() + "-" + (nowMonth.getMonth() + 1) + "-" + leftPad(nowDay.getDate()) + "'>"
-                					+ "<input class='bookSubmitBtn' type='submit' value='예약'></form>";
+                					+ "<input class='bookSubmitBtn' type='submit' value='예매하기'></form>";
                 						
                 
                 if (nowDay.getDay() == 0) {                 // 일요일인 경우 글자색 빨강으로
