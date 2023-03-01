@@ -25,7 +25,8 @@
             color: white;
         }        
 
-        .pastDay{ background-color: lightgray; }
+        .pastDay{ 
+        background-color: lightgray; }
 
         .today{            
             background-color: #FFCA64;            
@@ -77,7 +78,7 @@
         <tbody>
         </tbody>
     </table>
-
+    
  	<jsp:include page="/WEB-INF/tags/footer.jsp"/>
 
 
@@ -86,6 +87,9 @@
 const ctx = "${pageContext.request.contextPath}";
 </script>
 <script>
+
+
+
         window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
 
         let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
@@ -100,7 +104,7 @@ const ctx = "${pageContext.request.contextPath}";
 
             let tbody_Calendar = document.querySelector(".Calendar > tbody");
             document.getElementById("calYear").innerText = nowMonth.getFullYear();             // 연도 숫자 갱신
-            document.getElementById("calMonth").innerText = nowMonth.getMonth() + 1;  // 월 숫자 갱신
+            document.getElementById("calMonth").innerText = leftPad(nowMonth.getMonth() + 1);  // 월 숫자 갱신
             
             while (tbody_Calendar.rows.length > 0) {                        // 이전 출력결과가 남아있는 경우 초기화
                 tbody_Calendar.deleteRow(tbody_Calendar.rows.length - 1);
@@ -116,10 +120,10 @@ const ctx = "${pageContext.request.contextPath}";
 
                 let nowColumn = nowRow.insertCell();        // 새 열을 추가하고 td
                 
-                nowColumn.innerHTML = "<form action='/book/book' method='get'><p>" + nowDay.getDate() + "</p>"
+                nowColumn.innerHTML = "<form action='/book/book' method='get'><p>" + leftPad(nowDay.getDate()) + "</p>"
                 					+ "<input type='hidden' name='bookDate' value='"
-                					+ nowMonth.getFullYear() + "-" + (nowMonth.getMonth() + 1) + "-"+ nowDay.getDate() + "'>"
-                					+ "<input type='submit' value='예약'></form>";
+                					+ nowMonth.getFullYear() + "-" + (nowMonth.getMonth() + 1) + "-" + leftPad(nowDay.getDate()) + "'>"
+                					+ "<input class='bookSubmitBtn' type='submit' value='예약'></form>";
                 						
                 
                 if (nowDay.getDay() == 0) {                 // 일요일인 경우 글자색 빨강으로
@@ -130,25 +134,38 @@ const ctx = "${pageContext.request.contextPath}";
                     nowRow = tbody_Calendar.insertRow();    // 새로운 행 추가
                 }
 
-
-                if (nowDay < today) {                       // 지난날인 경우
+             	// 지난날인 경우
+                if (nowDay < today) {                       
                     nowColumn.className = "pastDay";
                 }
-                else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) { // 오늘인 경우           
+             	// 오늘인 경우 
+                else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) {           
                     nowColumn.className = "today";
                     nowColumn.onclick = function () { choiceDate(this); }
                 }
-                else {                                      // 미래인 경우
+            	 // 미래인 경우
+                else {                                      
                     nowColumn.className = "futureDay";
                     nowColumn.onclick = function () { choiceDate(this); }
                 }
             }
-            for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
-            	
-            }
+            
+            over();
         }
-        		
-
+        
+        // 지난 날짜 선택불가
+        function over() {
+        	const pasts = document.querySelectorAll(".pastDay");
+        	
+        	pasts.forEach(items);
+        	
+	        	function items(item){
+	        		const b = item.firstChild
+	        		const c = b.lastChild
+	        		c.disabled = true;
+	        	}
+        	}
+        
         // 날짜 선택
         function choiceDate(nowColumn) {
             if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
