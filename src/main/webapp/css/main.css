@@ -1,6 +1,12 @@
 /* 글씨폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 /*메인*/
 main {
@@ -16,7 +22,6 @@ main {
 main h2 {
     font-size: 48px;
     color: #fff;
-    font-family: 'Nanum Myeongjo', serif;
     font-weight: normal;
     letter-spacing: -2px;
 
@@ -26,7 +31,6 @@ main h2 {
 main h5 {
     font-size: 16px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     font-weight: normal;
     line-height: 1.7;
 
@@ -71,7 +75,6 @@ main p.right {
 #icon_nav li p.txt {
     font-size: 14px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     font-weight: normal;
 
     padding-top: 10px;
@@ -105,7 +108,6 @@ main p.right {
 
     font-size: 14px;
     color: #666; 
-    font-family: 'NanumBarunGothic';
     line-height: 40px;
 
     margin: 0 0 10px 1100px;
@@ -144,7 +146,6 @@ main p.right {
 
     font-size: 15px;
     color: #999;
-    font-family: 'NanumBarunGothic';
 }
 
 #notice ul.left li:nth-child(1) {
@@ -163,7 +164,6 @@ main p.right {
     font-size: 18px;
     color: #fff;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     border-bottom: 1px solid #fff;
 
     padding-left: 40px;
@@ -178,7 +178,6 @@ main p.right {
     font-size: 18px;
     color: #fff;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     border-bottom: 1px solid #fff;
 
     padding-left: 40px;
@@ -209,7 +208,6 @@ main p.right {
     font-size: 12px;
     color: #2493e0;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     text-align: center;
     line-height: 22px;
 
@@ -221,7 +219,6 @@ main p.right {
     font-size: 18px;
     color: #0846a8;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     line-height: 1.5;
 
     padding-top: 25px;
@@ -232,7 +229,6 @@ main p.right {
     font-size: 14px;
     color: #999;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     line-height: 1.5;
 
     padding-top: 25px;
@@ -243,7 +239,6 @@ main p.right {
     font-size: 11px;
     color: #999;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
 
     padding-top: 30px;
     padding-left: 35px;
@@ -272,7 +267,6 @@ main p.right {
     font-size: 15px;
     color: #666;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
 
     position: absolute;
     top: 130px;
@@ -330,7 +324,6 @@ main p.right {
     font-size: 12px;
     color: #333;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     line-height: 48px;
 }
 
@@ -363,14 +356,12 @@ main p.right {
 #program ul.right li:nth-child(1) {
     font-size: 27px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     line-height: 1.4;
 }
 
 #program ul.right li:nth-child(2) {
     font-size: 12px;
     color: #666;
-    font-family: 'NanumBarunGothic';
 
     padding-top: 20px;
 }
@@ -384,7 +375,6 @@ main p.right {
 
     font-size: 12px;
     color: #666;
-    font-family: 'NanumBarunGothic';
     text-align: center;
     line-height: 35px;
 
@@ -422,7 +412,6 @@ main p.right {
 #ticket h2 {
     font-size: 27px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
 
     padding-top: 50px;
 }
@@ -430,7 +419,6 @@ main p.right {
 #ticket h5 {
     font-size: 18px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     font-weight: normal;
     letter-spacing: -1px;
 
@@ -449,7 +437,6 @@ main p.right {
 
     font-size: 12px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     font-weight: normal;
     line-height: 35px;
 
@@ -472,7 +459,6 @@ main p.right {
 #introduce h2 {
     font-size: 24px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     
     padding-top: 130px;
 }
@@ -504,7 +490,6 @@ main p.right {
 #introduce ul li:nth-child(2) {
     font-size: 20px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     
     padding-top: 25px;
 }
@@ -547,7 +532,6 @@ main p.right {
 #event h2 {
     font-size: 80px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     
     padding-top: 50px;
     padding-left: 50px;
@@ -556,7 +540,6 @@ main p.right {
 #event h4 {
     font-size: 17px;
     color: #fff;
-    font-family: 'NanumBarunGothic';
     
     padding-top: 10px;
     padding-left: 50px;
@@ -594,14 +577,12 @@ main p.right {
     font-size: 24px;
     color: #fff;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
 }
 
 #event ul li:nth-child(3) {
     font-size: 14px;
     color: #fff;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     line-height: 1.5;
     
     padding-top: 15px;
@@ -618,7 +599,6 @@ main p.right {
     font-size: 14px;
     color: #fff;
     font-weight: bold;
-    font-family: 'NanumBarunGothic';
     line-height: 43px;
     display: none;
 }
@@ -653,7 +633,6 @@ main p.right {
 #sns h2 {
     font-size: 22px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     text-align: left;
     
     padding-top: 140px;
@@ -692,7 +671,6 @@ main p.right {
     
     font-size: 12px;
     color: #333;
-    font-family: 'NanumBarunGothic';
     line-height: 1.4;
     
     padding-top: 30px;
